@@ -6,30 +6,33 @@ class Airplane
 {
 	
 	public:
+		~Airplane ();
 		Airplane ();
-		void setDisplay();
-		void getDisplay();
-		void setGps();
-		void setTransponder();
-		void set_Piloto_auto();
-		void setSpeed ();
-		void setDistancia ();
-		void autonomia();
-		void setDecolar();
-		void setAlterarvoo();
-		float  getSpeed();	
-		float  getDistancia();
-		float  getAux();
-		void   Wait();
+		void	Display();
+		void	DisplayMessage();
+		void	Gps();
+		void	Transponder();
+		void	Piloto_auto();
+		void	Speed ();
+		void	Distance ();
+		void	TakeOff();
+		void	ChangeFlight();
+		float	getSpeed();	
+		float	getDistance();
+		float	getAux();
+		void	Wait();
+		int 	static	getairplane();
+		static  int airplane;
+		
 	private:
-		bool  Gps;
-		bool  Transponder;
-		bool  Piloto_auto;
-		bool  On_air;
-		float Speed;
-		float Distancia;
-		float Aux;
-		int   Autonomia;
+		
+		bool	gps;
+		bool	piloto_auto;
+		bool	on_air;
+		float	speed;
+		float	distance;
+		float	aux;
+		bool	transponder;
 		
 };
 

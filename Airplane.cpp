@@ -3,41 +3,43 @@
 #include<iostream>
 using namespace std;
 Airplane::Airplane(){
-	On_air 		= false;
-	Gps	        = false;
-	Transponder = false;
-	Piloto_auto = false;
-	Autonomia	= 6;
+	on_air 		= false;
+	gps	        = false;
+	transponder = false;
+	piloto_auto = false;
+	speed		=0;
+	distance	=0;
+	
 }
 float Airplane::getSpeed(){
-	return Speed;
+	return speed;
 }
-float Airplane::getDistancia(){
-	return Distancia;
+float Airplane::getDistance(){
+	return distance;
 }
-void Airplane::getDisplay(){
+void Airplane::DisplayMessage(){
 	Wait();
 	cout << "\nStatus dos instrumentos:" << endl;
-	if ( Gps == false){
+	if ( gps == false){
 		cout <<"Gps desligado..." << endl; 
 	}
 	else{
 		cout <<"Gps ligado e funcionando..." << endl;
 	}
 	
-	if ( Transponder == false){
+	if ( transponder == false){
 		cout <<"transponder desligado..." << endl; 
 	}
 	else{
 		cout <<"Tranponder ligado e funcionando..." << endl;
 	}
-	if ( Piloto_auto == false){
+	if ( piloto_auto == false){
 		cout <<"Piloto automatico desligado..." << endl; 
 	}
 	else{
 		cout <<"Piloto automatico ligado e funcionando..." << endl;
 	}
-	if ( On_air == false){
+	if ( on_air == false){
 		cout <<"Airplane ainda em solo..." << endl; 
 	}
 	else{
@@ -46,11 +48,11 @@ void Airplane::getDisplay(){
 
 }
 float Airplane::getAux(){
-	return Aux;
+	return aux;
 }
-void Airplane::setGps(){
-	if ( Gps == false ){
-	Gps = true;
+void Airplane::Gps(){
+	if ( gps == false ){
+	gps = true;
 	Wait();
 	cout <<"\nGps ligado e funcionando..." << endl;
 	}
@@ -58,36 +60,46 @@ void Airplane::setGps(){
 	else{
 	Wait();
 	cout <<"\nGps desligado..." << endl;
-	Gps = false;
+	gps = false;
 	}
 	
 }
-void Airplane::setTransponder(){
-	this->Transponder = true;
+void Airplane::Transponder(){
+	if ( transponder == false){
+	this->transponder = true;
 	Wait();
 	cout <<"\nTransponder ligado e funcionando..." << endl;
+	}
+	else
+	{
+	this->transponder = false;
+	Wait();
+	cout <<"\nTransponder desligado..." << endl;
+		
+	}
 }
-void Airplane::set_Piloto_auto(){
-	if ( On_air == false){
+
+void Airplane::Piloto_auto(){
+	if ( on_air == false){
 		Wait();
 		cout << "\nErro helios One ainda em solo...\n" << endl;}
-	else if ( Gps && Transponder == false ){
+	else if ( gps && transponder == false ){
 		Wait();
 		cout << "\nGps e Transponder desligados..." << endl;
 		}	 
-	else if ( Piloto_auto == true ){
-			Piloto_auto = false;
+	else if ( piloto_auto == true ){
+			piloto_auto = false;
 			Wait();
 			cout <<"\nPiloto automatico desligado..." << endl;
 		}
 	else{
-			Piloto_auto = true;
+			piloto_auto = true;
 			Wait();
 			cout <<"\nPiloto automatico ligado e funcionando..." << endl;
 
 		}	
 }
-void Airplane::setDisplay(){
+void Airplane::Display(){
 	int aux;
 	do{
 	
@@ -104,49 +116,49 @@ void Airplane::setDisplay(){
 		switch (aux){
 			case 1:
 				system("cls");
-				setGps();
+				Gps();
 				
 				break;
 			case 2:
 				system("cls");
-				setTransponder();
+				Transponder();
 				
 				break;
 			case 3:
 				system("cls");
-				set_Piloto_auto();
+				Piloto_auto();
 				break;
 			case 4:
 				system("cls");
-				getDisplay();
+				DisplayMessage();
 				cout <<"\n";
 				break;
 			case 5:
 				system("cls");
-				setDecolar ();
+				TakeOff();
 				cout <<"\n";
 				break;
 			case 6:
 				system("cls");
-				setAlterarvoo();
+				ChangeFlight();
 				cout <<"\n";
 				break;
 			default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
 }
-void Airplane::setSpeed(){
+void Airplane::Speed(){
 		cout << "Velocidade desejada em Km/h: " << endl;
 		int op;
 		do{
-		cin >> this->Speed;
-		if ( this->Speed < 100)
+		cin >> this->speed;
+		if ( this->speed < 100)
 		{
 			cout << "Impossivel ganhar ou manter altitude a esta velocidade..." << endl;
 			op =0;
 		}
 		
-		else if( this->Speed > 300)
+		else if( this->speed > 300)
 		{
 				cout << "Velocidade maxima excedida..." << endl;
 				op = 0;
@@ -154,29 +166,29 @@ void Airplane::setSpeed(){
 		
 		else
 		{
-		this->Speed = this->Speed;
+		this->speed = this->speed;
 		op = 1;
 		}
 		
 	} while ( op == 0);
 }	
-void Airplane::setDistancia(){
+void Airplane::Distance(){
 	int op;
 	cout <<"Distancia do destino em km: " << endl;
-	if ( On_air == false)
+	if ( on_air == false)
  	{
 		do{
-		cin >> this->Distancia;
-		if ( Distancia > 1800 ){
+		cin >> this->distance;
+		if ( distance > 1800 ){
 			cout <<"Distancia excede a autonomia do Helius One..." << endl;
 			op = 0;
 		}
-		else if ( Distancia <= 0 ){
+		else if ( distance <= 0 ){
 			cout <<"Distancia invalida..." << endl;
 			op = 0;
 		}
 		else{
-			Distancia = Distancia;
+			distance = distance;
 			op = 1;
 			} 
 	} while ( op == 0);
@@ -186,88 +198,91 @@ void Airplane::setDistancia(){
 	else // Alterar distancia em voo
 	{
 		
-		cout << "Helios One jah percorreu: " << Distancia << endl;
-		cout << "Autonomia restante :" << 1800 - Distancia << endl;
+		cout << "Helios One jah percorreu: " << distance << endl;
+		cout << "Autonomia restante :" << 1800 - distance << endl;
 		cout << "Nova distancia do destino em km: " << endl;
-		this->Aux = this->Distancia;
+		this-> aux = this-> distance;
 		do{
-			cin >> this->Distancia;
-			if ( Aux + Distancia > 1800 ){
+			cin >> this-> distance;
+			if ( aux + distance > 1800 ){
 			cout <<"Distancia excede a autonomia do Helius One..." << endl;
 			op = 0;
 			}
-		else if ( Distancia < 0 ){
+		else if ( distance < 0 ){
 			cout <<"Distancia invalida..." << endl;
 			op = 0;
 		}
 		
 		else{
-			Distancia = Distancia;
+			distance = distance;
 			op = 1;
 		}
 	} while ( op == 0);
 	
 	}  
 }
-void Airplane::setDecolar(){
-	if ( Transponder == false )
+void Airplane::TakeOff(){
+	if ( transponder == false )
 	{ // Nao decolar com transponder off
 		Wait();
 		cout <<"\nErro Transponder desativado..." << endl;
 		cout <<"Erro impossivel decolar..." << endl;
 	}
 	
-	else if ( On_air == false) 
+	else if ( on_air == false) 
 {
 		cout <<"Procedimentos para decolagem..." << endl;
-		setDistancia();	 
-		setSpeed();
-		this->On_air = true;
+		Distance();	 
+		Speed();
+		this->on_air = true;
 		system("cls");
-		cout <<"Acelerando Helios One..." << endl;
-			for ( int i = 1; i<=Speed; i ++ )
+		cout <<"Acelerando Airplane..." << endl;
+			for ( int i = 1; i<=speed; i ++ )
 			{
-				Sleep(100);
+				Sleep(10);
 				cout << i  << "km/h" << endl;
 			}
-		cout << "Helios One no ar!" << endl;
-		cout << "Tempo estimado para destino: " << Distancia/Speed <<" horas" << endl;
+		cout << "Airplane no ar!" << endl;
+		cout << "Tempo estimado para destino: " << distance/speed <<" horas" << endl;
 		Wait();	
-		for ( int i = 1; i<=Distancia; i ++ )
+		for ( int i = 1; i<=distance; i ++ )
 			{
-				Sleep(50);
+				Sleep(10);
 				cout <<"Distancia jah percorrida: "<< i  << "km" << endl;
 			}
 }
 	else 
 	{
-		cout << "Helios One jah esta no ar!" << endl;
+		cout << "Airplane jah esta no ar!" << endl;
 		
 	}
 }
-void Airplane::setAlterarvoo(){
-	if ( On_air == false){
-		cout <<"Erro Helios One ainda em solo... " << endl;
+void Airplane::ChangeFlight(){
+	if ( on_air == false){
+		cout <<"Erro Airplane ainda em solo... " << endl;
 	}
 	 else
 	 {
 	 
 		cout << "Alterar velocidade: " << endl;
-		setSpeed();
+		Speed();
 		cout << "Alterar Distancia: " << endl;
-		setDistancia();
-		cout << "Nova velocidade: " << Speed << endl;
-		cout << "Nova distancia: " << Distancia << endl;
-		cout << "Tempo estimado para destino: " << Distancia/Speed <<"horas" << endl;
+		Distance();
+		cout << "Nova velocidade: " << speed << endl;
+		cout << "Nova distancia: " << distance << endl;
+		cout << "Tempo estimado para destino: " << distance/speed <<"horas" << endl;
 	 } 
 }
 void Airplane::Wait(){
 	cout << "Aguarde";
 		for ( int i = 1; i<=30; i ++ ){
-				Sleep(100);
+				Sleep(20);
 				cout <<".";
 			}
 	
 
 }
 
+Airplane::~Airplane(){
+	cout <<"\nDestrutor chamado para Airplane..." << endl;
+}
