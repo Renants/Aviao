@@ -12,6 +12,15 @@ Airplane::Airplane(){
 	distance	=0;
 	
 }
+
+Airplane::Airplane( const Airplane &aviao ){
+	on_air 		= aviao.on_air;
+	gps	        = aviao.gps;
+	transponder = aviao.transponder;
+	piloto_auto = aviao.piloto_auto;
+	speed		= aviao.speed;
+	distance	= aviao.distance;
+}
 float Airplane::getSpeed(){
 	return speed;
 }
@@ -57,7 +66,6 @@ void Airplane::Gps(){
 	Wait();
 	cout <<"\nGps ligado e funcionando..." << endl;
 	}
-	
 	else{
 	Wait();
 	cout <<"\nGps desligado..." << endl;

@@ -8,8 +8,9 @@ class Airplane
 {
 	
 	public:
-		~Airplane ();
-		Airplane ();
+		~Airplane	 ();
+		Airplane	 ();
+		Airplane	 ( const Airplane & );
 		void	Display();
 		void	DisplayMessage();
 		void	Gps();
