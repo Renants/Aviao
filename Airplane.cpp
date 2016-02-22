@@ -2,6 +2,7 @@
 #include<windows.h>
 #include<iostream>
 using namespace std;
+int Airplane::radar = 0;
 Airplane::Airplane(){
 	on_air 		= false;
 	gps	        = false;
@@ -67,12 +68,14 @@ void Airplane::Gps(){
 void Airplane::Transponder(){
 	if ( transponder == false){
 	this->transponder = true;
+	radar++;
 	Wait();
 	cout <<"\nTransponder ligado e funcionando..." << endl;
 	}
 	else
 	{
 	this->transponder = false;
+	radar--;
 	Wait();
 	cout <<"\nTransponder desligado..." << endl;
 		
@@ -110,6 +113,7 @@ void Airplane::Display(){
 		 << "Mostrar status dos insturmnetos	-4-\n"
 		 << "Iniciar decolagem	 	-5-\n"
 		 << "Alterar parametros de voo	-6-\n"
+		 << "Mostrar Radar		-7-\n"
 		 << "Sair do Display insturmnetos	-0-\n";
 	cout << endl;
 		cin >> aux;
@@ -143,6 +147,12 @@ void Airplane::Display(){
 				ChangeFlight();
 				cout <<"\n";
 				break;
+			case 7:
+				system("cls");
+				getRadar();
+				cout <<"\n";
+				break;
+				
 			default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
@@ -281,6 +291,10 @@ void Airplane::Wait(){
 			}
 	
 
+}
+
+void Airplane::getRadar(){
+	cout <<"Objetos no radar: "<< radar <<endl;
 }
 
 Airplane::~Airplane(){
