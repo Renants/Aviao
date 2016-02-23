@@ -22,7 +22,7 @@ main(){
 	getline (cin,name);
 	system("cls");
 	linha(34);
-	Helios_One.setDisplay();	
+	Helios_One.Display();	
 	system("cls");
 	linha(34);
 	cout << "\nHelios One processando dados da viagem..." << endl;
@@ -33,8 +33,8 @@ main(){
 			}
 	cout << "\n"; 
 	cout << name <<",chegaste ao teu destino!" << endl;
-	cout << "Distancia percorrida: " << Helios_One.getDistancia() + Helios_One.getAux() << "Km" << endl;
-	cout << "Tempo: " << (Helios_One.getDistancia() + Helios_One.getAux() ) / Helios_One.getSpeed() << endl;
+	cout << "Distancia percorrida: " << Helios_One.getDistance() + Helios_One.getAux() << "Km" << endl;
+	cout << "Tempo: " << (Helios_One.getDistance() + Helios_One.getAux() ) / Helios_One.getSpeed() << endl;
 	cout << "Velocidade: " << Helios_One.getSpeed() << endl;	
 	linha(34);
 	system("pause>0");

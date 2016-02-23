@@ -1,7 +1,7 @@
 #ifndef AIRPLANE_H
 #define AIRPLANE_H
 #include<string>
-#include "Date.h"
+#include "Data.h"
 
 using namespace std;
 class Airplane
@@ -24,7 +24,7 @@ class Airplane
 		float	getDistance();
 		float	getAux();
 		void	Wait();
-		void	static	getRadar();
+       	void	static	getRadar();
 				
 	private:
 		
@@ -36,7 +36,8 @@ class Airplane
 		float	aux;
 		bool	transponder;
 		static  int radar;
-		Date	blackbox;
+		Data	blackbox;
+        
 };
 
 #endif

@@ -3,7 +3,9 @@
 #include<iostream>
 using namespace std;
 int Airplane::radar = 0;
-Airplane::Airplane(){
+Airplane::Airplane()
+    : blackbox()
+{
 	on_air 		= false;
 	gps	        = false;
 	transponder = false;
@@ -29,7 +31,9 @@ float Airplane::getDistance(){
 }
 void Airplane::DisplayMessage(){
 	Wait();
-	cout << "\nStatus dos instrumentos:" << endl;
+	cout <<"Data Default: " << endl; 
+    blackbox.Print(); 
+    cout << "\nStatus dos instrumentos:" << endl;
 	if ( gps == false){
 		cout <<"Gps desligado..." << endl; 
 	}
@@ -304,6 +308,7 @@ void Airplane::Wait(){
 void Airplane::getRadar(){
 	cout <<"Objetos no radar: "<< radar <<endl;
 }
+
 
 Airplane::~Airplane(){
 	cout <<"\nDestrutor chamado para Airplane..." << endl;
