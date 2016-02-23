@@ -35,6 +35,7 @@ class Airplane
 		float	distance;
 		float	aux;
 		bool	transponder;
+        int     freeseats;
 		static  int radar;
 		Data	blackbox;
         

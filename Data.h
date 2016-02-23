@@ -2,13 +2,19 @@
 #ifndef DATA_H
 #define	DATA_H
 
-class Data 
-{
+class Data
+{ 
 public:
-    static const int monthsyear = 12;
-    Data( int = 1, int = 1, int = 2000);
-    ~Data();
-    void Print() const;
+    
+    Data( int = 1, int = 1, int = 2000 );
+    void print() const;
+    // funçoes set...
+    setDay( int); 
+    setMonth( int);
+    setYear( int);
+    //funçoes get...
+    
+    int Checkday( int ) const;
     
 private:
     
@@ -16,7 +22,7 @@ private:
     int month;
     int year;
     
-    int Checkday (int) const;
+    
 
 
 };

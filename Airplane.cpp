@@ -10,6 +10,7 @@ Airplane::Airplane()
 	gps	        = false;
 	transponder = false;
 	piloto_auto = false;
+    freeseats   =6;
 	speed		=0;
 	distance	=0;
 	
@@ -22,6 +23,8 @@ Airplane::Airplane( const Airplane &aviao ){
 	piloto_auto = aviao.piloto_auto;
 	speed		= aviao.speed;
 	distance	= aviao.distance;
+    freeseats   = aviao.freeseats;
+    blackbox    = aviao.blackbox;
 }
 float Airplane::getSpeed(){
 	return speed;
@@ -32,7 +35,7 @@ float Airplane::getDistance(){
 void Airplane::DisplayMessage(){
 	Wait();
 	cout <<"Data Default: " << endl; 
-    blackbox.Print(); 
+    blackbox.print(); 
     cout << "\nStatus dos instrumentos:" << endl;
 	if ( gps == false){
 		cout <<"Gps desligado..." << endl; 
@@ -125,7 +128,7 @@ void Airplane::Display(){
 		 << "Mostrar status dos insturmnetos	-4-\n"
 		 << "Iniciar decolagem	 	-5-\n"
 		 << "Alterar parametros de voo	-6-\n"
-		 << "Mostrar Radar		-7-\n"
+		 << "Mostrar Radar      		-7-\n"
 		 << "Sair do Display insturmnetos	-0-\n";
 	cout << endl;
 		cin >> aux;

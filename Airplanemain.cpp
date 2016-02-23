@@ -10,10 +10,11 @@ void linha( int x){
 }
 main(){
 	Airplane Helios_One;
-	string name;
-	linha(40);
-	cout << "\n*Bem vindo ao Helios One Aviao eletrico!*\n";
-	linha(40);
+	Data Obj_blackbox;
+    string name;
+	linha(25);
+	cout << "\n*Bem vindo ao Helios One*\n";
+	linha(25);
 	cout << "\nAutonomia de voo: 6 horas ininterruptas";
 	cout << "\nVelocidade maxima em tempo favoravel: 300 km/h" <<endl;
 	linha(40);
