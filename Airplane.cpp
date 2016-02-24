@@ -10,10 +10,8 @@ Airplane::Airplane()
 	gps	        = false;
 	transponder = false;
 	piloto_auto = false;
-    freeseats   =6;
 	speed		=0;
-	distance	=0;
-	
+	distance	=0;	
 }
 
 Airplane::Airplane( const Airplane &aviao ){
@@ -23,7 +21,6 @@ Airplane::Airplane( const Airplane &aviao ){
 	piloto_auto = aviao.piloto_auto;
 	speed		= aviao.speed;
 	distance	= aviao.distance;
-    freeseats   = aviao.freeseats;
     blackbox    = aviao.blackbox;
 }
 float Airplane::getSpeed(){
@@ -35,7 +32,7 @@ float Airplane::getDistance(){
 void Airplane::DisplayMessage(){
 	Wait();
 	cout <<"Data Default: " << endl; 
-    blackbox.print(); 
+    blackbox.print();
     cout << "\nStatus dos instrumentos:" << endl;
 	if ( gps == false){
 		cout <<"Gps desligado..." << endl; 
@@ -129,7 +126,7 @@ void Airplane::Display(){
 		 << "Iniciar decolagem	 	-5-\n"
 		 << "Alterar parametros de voo	-6-\n"
 		 << "Mostrar Radar      		-7-\n"
-		 << "Sair do Display insturmnetos	-0-\n";
+         << "Sair do Display insturmnetos	-0-\n";
 	cout << endl;
 		cin >> aux;
 		switch (aux){
@@ -167,7 +164,6 @@ void Airplane::Display(){
 				getRadar();
 				cout <<"\n";
 				break;
-				
 			default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
@@ -205,7 +201,7 @@ void Airplane::Distance(){
 		do{
 		cin >> this->distance;
 		if ( distance > 1800 ){
-			cout <<"Distancia excede a autonomia do Helius One..." << endl;
+			cout <<"Distancia excede a autonomia do Airplane..." << endl;
 			op = 0;
 		}
 		else if ( distance <= 0 ){
@@ -223,14 +219,14 @@ void Airplane::Distance(){
 	else // Alterar distancia em voo
 	{
 		
-		cout << "Helios One jah percorreu: " << distance << endl;
+		cout << "Airplane jah percorreu: " << distance << endl;
 		cout << "Autonomia restante :" << 1800 - distance << endl;
 		cout << "Nova distancia do destino em km: " << endl;
 		this-> aux = this-> distance;
 		do{
 			cin >> this-> distance;
 			if ( aux + distance > 1800 ){
-			cout <<"Distancia excede a autonomia do Helius One..." << endl;
+			cout <<"Distancia excede a autonomia do Airplane..." << endl;
 			op = 0;
 			}
 		else if ( distance < 0 ){
@@ -312,6 +308,15 @@ void Airplane::getRadar(){
 	cout <<"Objetos no radar: "<< radar <<endl;
 }
 
+void Airplane::blackboxResgister(int day, int month, int year){
+    
+    blackbox.setDay(day);
+    blackbox.setMonth(month);
+    blackbox.setYear(year);
+    
+    cout <<"Ultima manutenção em: "  << endl;
+    blackbox.print();
+}
 
 Airplane::~Airplane(){
 	cout <<"\nDestrutor chamado para Airplane..." << endl;

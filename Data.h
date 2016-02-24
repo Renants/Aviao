@@ -1,4 +1,3 @@
-
 #ifndef DATA_H
 #define	DATA_H
 
@@ -13,6 +12,9 @@ public:
     setMonth( int);
     setYear( int);
     //funçoes get...
+    int getDay();
+    int getMonth();
+    int getYear();
     
     int Checkday( int ) const;
     

@@ -1,7 +1,6 @@
 #include "Data.h"
-
 #include <iostream>
-using std::cout;
+using namespace std;
 
 Data::Data(int d, int m, int y) 
 {

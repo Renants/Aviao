@@ -10,7 +10,7 @@ void linha( int x){
 }
 main(){
 	Airplane Helios_One;
-	Data Obj_blackbox;
+	Data Obj_blackbox(24,02,2017);
     string name;
 	linha(25);
 	cout << "\n*Bem vindo ao Helios One*\n";
@@ -21,7 +21,7 @@ main(){
 	cout << "\nBem vindo piloto!" << endl;
 	cout << "Nome: ";  
 	getline (cin,name);
-	system("cls");
+    system("cls");
 	linha(34);
 	Helios_One.Display();	
 	system("cls");
@@ -38,6 +38,8 @@ main(){
 	cout << "Tempo: " << (Helios_One.getDistance() + Helios_One.getAux() ) / Helios_One.getSpeed() << endl;
 	cout << "Velocidade: " << Helios_One.getSpeed() << endl;	
 	linha(34);
-	system("pause>0");
+	
+    system("pause>0");
+    
 }
 
