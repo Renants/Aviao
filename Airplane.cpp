@@ -11,7 +11,8 @@ Airplane::Airplane()
 	transponder = false;
 	piloto_auto = false;
 	speed		=0;
-	distance	=0;	
+	distance	=0;
+    freeseats   =6;
 }
 
 Airplane::Airplane( const Airplane &aviao ){
@@ -23,15 +24,15 @@ Airplane::Airplane( const Airplane &aviao ){
 	distance	= aviao.distance;
     blackbox    = aviao.blackbox;
 }
-float Airplane::getSpeed(){
+float Airplane::getSpeed()const{
 	return speed;
 }
-float Airplane::getDistance(){
+float Airplane::getDistance()const{
 	return distance;
 }
-void Airplane::DisplayMessage(){
+void Airplane::DisplayMessage()const{
 	Wait();
-	cout <<"Data Default: " << endl; 
+	cout <<"\nData Default: " << endl; 
     blackbox.print();
     cout << "\nStatus dos instrumentos:" << endl;
 	if ( gps == false){
@@ -61,7 +62,7 @@ void Airplane::DisplayMessage(){
 	}
 
 }
-float Airplane::getAux(){
+float Airplane::getAux()const{
 	return aux;
 }
 void Airplane::Gps(){
@@ -126,8 +127,10 @@ void Airplane::Display(){
 		 << "Iniciar decolagem	 	-5-\n"
 		 << "Alterar parametros de voo	-6-\n"
 		 << "Mostrar Radar      		-7-\n"
+         << "Embarque de passageiros         -8-\n"
+         << "Lista de passageiros            -9-\n"
          << "Sair do Display insturmnetos	-0-\n";
-	cout << endl;
+        cout << endl;
 		cin >> aux;
 		switch (aux){
 			case 1:
@@ -164,7 +167,18 @@ void Airplane::Display(){
 				getRadar();
 				cout <<"\n";
 				break;
-			default: 
+			case 8:
+				system("cls");
+				setPassenger();
+				cout <<"\n";
+				break;
+			case 9:
+				system("cls");
+				getPassenger();
+				cout <<"\n";
+				break;
+			
+            default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
 }
@@ -294,7 +308,7 @@ void Airplane::ChangeFlight(){
 		cout << "Tempo estimado para destino: " << distance/speed <<"horas" << endl;
 	 } 
 }
-void Airplane::Wait(){
+void Airplane::Wait()const{
 	cout << "Aguarde";
 		for ( int i = 1; i<=30; i ++ ){
 				Sleep(20);
@@ -318,6 +332,35 @@ void Airplane::blackboxResgister(int day, int month, int year){
     blackbox.print();
 }
 
+void Airplane::setPassenger(){
+    if ( freeseats ==0){
+        cout <<"No vacancy" << endl;
+    }
+    else
+    {
+        registro= new Passenger[freeseats];
+        string aux;    
+        do  {
+            cout << "Nome: "<< freeseats << endl; 
+            getline( cin, aux);
+            registro[freeseats].setNome(aux);
+            freeseats--;
+            } while ( freeseats >= 0);
+    }
+}
+
+void Airplane::getPassenger(){
+    if ( freeseats == 6)    
+        {
+         cout <<"Empty" << endl;
+        }
+    else
+        {
+            for ( this->freeseats = 6; freeseats >=0; freeseats -- ){
+            registro[freeseats].getNome();}
+        }
+}
+
 Airplane::~Airplane(){
-	cout <<"\nDestrutor chamado para Airplane..." << endl;
+        cout <<"\nDestrutor chamado para Airplane..." << endl;
 }

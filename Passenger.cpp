@@ -1,15 +1,14 @@
 #include "Passenger.h"
+#include<iostream>
 
-Passenger::Passenger()
-{
-    name = "";
+Passenger::Passenger(){}
+
+
+void Passenger::getNome(){
+  cout<<"\n" << nome;
 }
 
-void Passenger::getName(){
-    for ( int i=1; i<= freeseats; i++)
-        cout"Name: " << name[i];
-}
-
-void Passenger::setName( string &n ){
-    name = n;       
+// define o nome do cliente
+void Passenger::setNome(string nome){
+  this->nome = nome;
 }

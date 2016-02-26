@@ -1,19 +1,18 @@
 #ifndef PASSENGER_H
 #define PASSENGER_H
-#include "Data.h"
+#include <iostream>
 #include <string>
+
 using namespace std;
-class Passenger
-{
-    public:
+
+// declaração da classe Cliente
+class Passenger{
+  public:
     Passenger();
-    string  getName() const;
-    void    setName();
-    
-    private:
-        string  name;
-        int     freeseats;
-        Data    embarque;
+    void getNome();
+    void setNome(string);
+  private:
+    string nome;
 };
 
 #endif // PASSENGER_H

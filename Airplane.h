@@ -6,13 +6,12 @@
 using namespace std;
 class Airplane
 {
-	
 	public:
 		~Airplane	 ();
 		Airplane	 ();
 		Airplane	 ( const Airplane & );
 		void	Display();
-		void	DisplayMessage();
+		void	DisplayMessage() const;
 		void	Gps();
 		void	Transponder();
 		void	Piloto_auto();
@@ -20,13 +19,13 @@ class Airplane
 		void	Distance ();
 		void	TakeOff();
 		void	ChangeFlight();
-		float	getSpeed();	
-		float	getDistance();
-		float	getAux();
-		void	Wait();
+		float	getSpeed() const;	
+		float	getDistance() const;
+		float	getAux()const;
+		void	Wait()const;
        	void	static	getRadar();
-        void    addPassenger( string & );
-        void    showPassengers();
+        void    setPassenger();
+        void    getPassenger();
         void    blackboxResgister( int, int, int);
 				
 	private:
@@ -40,7 +39,9 @@ class Airplane
 		bool	transponder;
         static  int radar;
 		Data    blackbox;
+        int     freeseats;
         Passenger *registro;
+    
 };
 
 #endif
