@@ -10,10 +10,9 @@ Airplane::Airplane()
 	gps	        = false;
 	transponder = false;
 	piloto_auto = false;
-	speed		=0;
-	distance	=0;
-    freeseats   =6;
+	
 }
+
 
 Airplane::Airplane( const Airplane &aviao ){
 	on_air 		= aviao.on_air;
@@ -25,7 +24,7 @@ Airplane::Airplane( const Airplane &aviao ){
     blackbox    = aviao.blackbox;
 }
 float Airplane::getSpeed()const{
-	return speed;
+	return velocidade;
 }
 float Airplane::getDistance()const{
 	return distance;
@@ -127,8 +126,6 @@ void Airplane::Display(){
 		 << "Iniciar decolagem	 	-5-\n"
 		 << "Alterar parametros de voo	-6-\n"
 		 << "Mostrar Radar      		-7-\n"
-         << "Embarque de passageiros         -8-\n"
-         << "Lista de passageiros            -9-\n"
          << "Sair do Display insturmnetos	-0-\n";
         cout << endl;
 		cin >> aux;
@@ -167,18 +164,7 @@ void Airplane::Display(){
 				getRadar();
 				cout <<"\n";
 				break;
-			case 8:
-				system("cls");
-				setPassenger();
-				cout <<"\n";
-				break;
-			case 9:
-				system("cls");
-				getPassenger();
-				cout <<"\n";
-				break;
-			
-            default: 
+           default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
 }
@@ -332,35 +318,7 @@ void Airplane::blackboxResgister(int day, int month, int year){
     blackbox.print();
 }
 
-void Airplane::setPassenger(){
-    if ( freeseats ==0){
-        cout <<"No vacancy" << endl;
-    }
-    else
-    {
-        registro= new Passenger[freeseats];
-        string aux;    
-        do  {
-            cout << "Nome: "<< freeseats << endl; 
-            getline( cin, aux);
-            registro[freeseats].setNome(aux);
-            freeseats--;
-            } while ( freeseats >= 0);
-    }
-}
-
-void Airplane::getPassenger(){
-    if ( freeseats == 6)    
-        {
-         cout <<"Empty" << endl;
-        }
-    else
-        {
-            for ( this->freeseats = 6; freeseats >=0; freeseats -- ){
-            registro[freeseats].getNome();}
-        }
-}
-
 Airplane::~Airplane(){
         cout <<"\nDestrutor chamado para Airplane..." << endl;
+        
 }

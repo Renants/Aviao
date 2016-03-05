@@ -2,7 +2,6 @@
 #define AIRPLANE_H
 #include<string>
 #include "Data.h"
-#include "Passenger.h"
 using namespace std;
 class Airplane
 {
@@ -24,24 +23,22 @@ class Airplane
 		float	getAux()const;
 		void	Wait()const;
        	void	static	getRadar();
-        void    setPassenger();
-        void    getPassenger();
         void    blackboxResgister( int, int, int);
 				
-	private:
+	protected:
 		
 		bool	gps;
 		bool	piloto_auto;
 		bool	on_air;
-		float	speed;
 		float	distance;
 		float	aux;
 		bool	transponder;
         static  int radar;
 		Data    blackbox;
-        int     freeseats;
-        Passenger *registro;
-    
+        int     capacidade;
+        int     speed;
+        
+        
 };
 
 #endif
