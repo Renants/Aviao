@@ -14,9 +14,6 @@ public:
         
 private:
     int capacidade;
-    int velocidade;
-    int autonomia;
-    int alcance;
     Passenger *registro;
 };
 

@@ -3,33 +3,52 @@
 #include<iostream>
 using namespace std;
 int Airplane::radar = 0;
-Airplane::Airplane()
-    : blackbox()
+
+Airplane::Airplane(int vmx, int aut)
+    : blackbox(), vmax (vmx) , autonomia (aut), alcance ( vmax* autonomia )  
 {
-	on_air 		= false;
+    
+    noar 		= false;
 	gps	        = false;
 	transponder = false;
-	piloto_auto = false;
-	
+	pilotoauto  = false;
+}
+
+ostream &operator<<(ostream &output,const Airplane &Aviaoprint)
+{
+    output << "Autonomia: "<< Airplane.autonomia << "Alcance: "<< Airplane.alcance <<"Velocidade: " << Airplane.velocidade << endl;   
+    return output;
 }
 
 
-Airplane::Airplane( const Airplane &aviao ){
-	on_air 		= aviao.on_air;
-	gps	        = aviao.gps;
-	transponder = aviao.transponder;
-	piloto_auto = aviao.piloto_auto;
-	speed		= aviao.speed;
-	distance	= aviao.distance;
-    blackbox    = aviao.blackbox;
+Airplane & Airplane::operator=(const Airplane &copia){
+	noar 		= copia.noar;
+	gps	        = copia.gps;
+	transponder = copia.transponder;
+	pilotoauto  = copia.pilotoauto;
+	velocidade	= copia.velocidade;
+	alcance	    = copia.alcance;
+    autonomia   = copia.autonomia;
+    blackbox    = copia.blackbox;
 }
-float Airplane::getSpeed()const{
+
+bool Airplane::operator ==(const Airplane &AviaoCmp) const
+{
+    if(AviaoCmp.alcance != alcance) return false;
+    if(AviaoCmp.autonomia!= autonomia) return false;
+    if(AviaoCmp.vmax != vmx) return false;
+    if(AviaoCmp.blackbox.print() != blackbox.print() ) return false;
+    return true;
+}
+
+
+float Airplane::retVelocidade()const{
 	return velocidade;
 }
-float Airplane::getDistance()const{
-	return distance;
+float Airplane::retAlcance()const{
+	return alcance;
 }
-void Airplane::DisplayMessage()const{
+void Airplane::visorMenssagem()const{
 	Wait();
 	cout <<"\nData Default: " << endl; 
     blackbox.print();
@@ -47,13 +66,13 @@ void Airplane::DisplayMessage()const{
 	else{
 		cout <<"Tranponder ligado e funcionando..." << endl;
 	}
-	if ( piloto_auto == false){
+	if ( pilotoauto == false){
 		cout <<"Piloto automatico desligado..." << endl; 
 	}
 	else{
 		cout <<"Piloto automatico ligado e funcionando..." << endl;
 	}
-	if ( on_air == false){
+	if ( noar == false){
 		cout <<"Airplane ainda em solo..." << endl; 
 	}
 	else{
@@ -61,10 +80,10 @@ void Airplane::DisplayMessage()const{
 	}
 
 }
-float Airplane::getAux()const{
+float Airplane::retAux()const{
 	return aux;
 }
-void Airplane::Gps(){
+void Airplane::defGps(){
 	if ( gps == false ){
 	gps = true;
 	Wait();
@@ -77,7 +96,7 @@ void Airplane::Gps(){
 	}
 	
 }
-void Airplane::Transponder(){
+void Airplane::defTransponder(){
 	if ( transponder == false){
 	this->transponder = true;
 	radar++;
@@ -94,27 +113,27 @@ void Airplane::Transponder(){
 	}
 }
 
-void Airplane::Piloto_auto(){
-	if ( on_air == false){
+void Airplane::defPilotoauto(){
+	if ( noar == false){
 		Wait();
 		cout << "\nErro helios One ainda em solo...\n" << endl;}
 	else if ( gps && transponder == false ){
 		Wait();
 		cout << "\nGps e Transponder desligados..." << endl;
 		}	 
-	else if ( piloto_auto == true ){
-			piloto_auto = false;
+	else if ( pilotoauto == true ){
+			pilotoauto = false;
 			Wait();
 			cout <<"\nPiloto automatico desligado..." << endl;
 		}
 	else{
-			piloto_auto = true;
+			pilotoauto = true;
 			Wait();
 			cout <<"\nPiloto automatico ligado e funcionando..." << endl;
 
 		}	
 }
-void Airplane::Display(){
+void Airplane::visor(){
 	int aux;
 	do{
 	
@@ -132,54 +151,54 @@ void Airplane::Display(){
 		switch (aux){
 			case 1:
 				system("cls");
-				Gps();
+				defGps();
 				
 				break;
 			case 2:
 				system("cls");
-				Transponder();
+				defTransponder();
 				
 				break;
 			case 3:
 				system("cls");
-				Piloto_auto();
+				defPilotoauto();
 				break;
 			case 4:
 				system("cls");
-				DisplayMessage();
+				visorMenssagem();
 				cout <<"\n";
 				break;
 			case 5:
 				system("cls");
-				TakeOff();
+				defDecolar();
 				cout <<"\n";
 				break;
 			case 6:
 				system("cls");
-				ChangeFlight();
+				defAlterarvoo();
 				cout <<"\n";
 				break;
 			case 7:
 				system("cls");
-				getRadar();
+				retRadar();
 				cout <<"\n";
 				break;
            default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
 }
-void Airplane::Speed(){
+void Airplane::defVelocidade(){
 		cout << "Velocidade desejada em Km/h: " << endl;
 		int op;
 		do{
-		cin >> this->speed;
-		if ( this->speed < 100)
+		cin >> this->velocidade;
+		if ( velocidade < 200)
 		{
 			cout << "Impossivel ganhar ou manter altitude a esta velocidade..." << endl;
 			op =0;
 		}
 		
-		else if( this->speed > 300)
+		else if( velocidade > 300)
 		{
 				cout << "Velocidade maxima excedida..." << endl;
 				op = 0;
@@ -187,29 +206,29 @@ void Airplane::Speed(){
 		
 		else
 		{
-		this->speed = this->speed;
+		this->velocidade = velocidade;
 		op = 1;
 		}
 		
 	} while ( op == 0);
 }	
-void Airplane::Distance(){
+void Airplane::defAlcance(){
 	int op;
 	cout <<"Distancia do destino em km: " << endl;
-	if ( on_air == false)
+	if ( noar == false)
  	{
 		do{
-		cin >> this->distance;
-		if ( distance > 1800 ){
+		cin >> this->alcance;
+		if ( alcance > autonomia*velocidade ){
 			cout <<"Distancia excede a autonomia do Airplane..." << endl;
 			op = 0;
 		}
-		else if ( distance <= 0 ){
+		else if ( alcance <= 0 ){
 			cout <<"Distancia invalida..." << endl;
 			op = 0;
 		}
 		else{
-			distance = distance;
+			this->alcance = alcance;
 			op = 1;
 			} 
 	} while ( op == 0);
@@ -219,30 +238,30 @@ void Airplane::Distance(){
 	else // Alterar distancia em voo
 	{
 		
-		cout << "Airplane jah percorreu: " << distance << endl;
-		cout << "Autonomia restante :" << 1800 - distance << endl;
+		cout << "Airplane jah percorreu: " << alcance << endl;
+		cout << "Autonomia restante :" << (autonomia*velocidade) - alcance << endl;
 		cout << "Nova distancia do destino em km: " << endl;
-		this-> aux = this-> distance;
+		this-> aux = this-> alcance;
 		do{
-			cin >> this-> distance;
-			if ( aux + distance > 1800 ){
+			cin >> this-> alcance;
+			if ( aux + alcance > autonomia*velocidade ){
 			cout <<"Distancia excede a autonomia do Airplane..." << endl;
 			op = 0;
 			}
-		else if ( distance < 0 ){
+		else if ( alcance < 0 ){
 			cout <<"Distancia invalida..." << endl;
 			op = 0;
 		}
 		
 		else{
-			distance = distance;
+			alcance = alcance;
 			op = 1;
 		}
 	} while ( op == 0);
 	
 	}  
 }
-void Airplane::TakeOff(){
+void Airplane::defDecolar(){
 	if ( transponder == false )
 	{ // Nao decolar com transponder off
 		Wait();
@@ -250,23 +269,23 @@ void Airplane::TakeOff(){
 		cout <<"Erro impossivel decolar..." << endl;
 	}
 	
-	else if ( on_air == false) 
+	else if ( noar == false) 
 {
 		cout <<"Procedimentos para decolagem..." << endl;
-		Distance();	 
-		Speed();
-		this->on_air = true;
+		defAlcance();	 
+		defVelocidade();
+		this->noar = true;
 		system("cls");
 		cout <<"Acelerando Airplane..." << endl;
-			for ( int i = 1; i<=speed; i ++ )
+			for ( int i = 1; i<=velocidade; i ++ )
 			{
 				Sleep(10);
 				cout << i  << "km/h" << endl;
 			}
 		cout << "Airplane no ar!" << endl;
-		cout << "Tempo estimado para destino: " << distance/speed <<" horas" << endl;
+		cout << "Tempo estimado para destino: " << alcance/velocidade <<" horas" << endl;
 		Wait();	
-		for ( int i = 1; i<=distance; i ++ )
+		for ( int i = 1; i<=alcance; i ++ )
 			{
 				Sleep(10);
 				cout <<"Distancia jah percorrida: "<< i  << "km" << endl;
@@ -278,20 +297,20 @@ void Airplane::TakeOff(){
 		
 	}
 }
-void Airplane::ChangeFlight(){
-	if ( on_air == false){
+void Airplane::defAlterarvoo(){
+	if ( noar == false){
 		cout <<"Erro Airplane ainda em solo... " << endl;
 	}
 	 else
 	 {
 	 
 		cout << "Alterar velocidade: " << endl;
-		Speed();
+		defVelocidade();
 		cout << "Alterar Distancia: " << endl;
-		Distance();
-		cout << "Nova velocidade: " << speed << endl;
-		cout << "Nova distancia: " << distance << endl;
-		cout << "Tempo estimado para destino: " << distance/speed <<"horas" << endl;
+		defAlcance();
+		cout << "Nova velocidade: " << velocidade << endl;
+		cout << "Nova distancia: " << alcance << endl;
+		cout << "Tempo estimado para destino: " << alcance /velocidade <<"horas" << endl;
 	 } 
 }
 void Airplane::Wait()const{
@@ -304,7 +323,7 @@ void Airplane::Wait()const{
 
 }
 
-void Airplane::getRadar(){
+void Airplane::retRadar(){
 	cout <<"Objetos no radar: "<< radar <<endl;
 }
 

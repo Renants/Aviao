@@ -1,29 +1,24 @@
 #include "Jatinho.h"
 #include<iostream>
 #include<iomanip>
-friend ostream &operator <<( ostream & out, const Jatinho &jato ){
-    cout << "Aucance de voo" << alcance << endl;
-    return out;
-}
 
 Jatinho::Jatinho()
- {
-    capacidade = 5;   //passageiros
-    velocidade = 700; // km/h
-    autonomia  = 4; //horas
-    alcance    = autonomia * velocidade;
-
+    : Airplane(1000,5) // Velocidade maxmima do drone e autonomia
+{
+    capacidade = 5;
 }
-Jatinho::Jatinho(const Jatinho &jatinho){
-    capacidade = jatinho.capacidade;
-    velocidade = jatinho.velocidade;
-    autonomia  = jatinho.autonomia;
-    alcance    = jatinho.alcance;
+
+
+Jatinho::Jatinho(const Jatinho &jato){
+    capacidade = jato.capacidade;
+    velocidade = jato.velocidade;
+    autonomia  = jato.autonomia;
+    alcance    = jato.alcance;
 }
 
 void Jatinho::setPassenger(){
     if ( capacidade ==0){
-        cout <<"No vacancy" << endl;
+        cout <<"Sem vagas" << endl;
     }
     else
     {
@@ -41,7 +36,7 @@ void Jatinho::setPassenger(){
 void Jatinho::getPassenger(){
     if ( capacidade == 5 )    
         {
-         cout <<"Empty" << endl;
+         cout <<"Vazio" << endl;
         }
     else
         {
@@ -49,8 +44,6 @@ void Jatinho::getPassenger(){
             registro[capacidade].getNome();}
         }
 }
-
-
 
 Jatinho::~Jatinho()
 {

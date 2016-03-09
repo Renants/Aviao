@@ -6,18 +6,15 @@ using namespace std;
 
 class Drone: public Airplane
 {
-friend ostream &operator <<( ostream &, const Drone & );
-    public:
+public:
+    Drone();
     Drone( const Drone & );
     ~Drone();
-    void Fire();
-    void Firem();
+    void defFirebala();
+    void defFiremissil();
     
     private:
-    int missile;
-    int velocidade;
-    int autonomia;
-    int alcance;
-        
+    int misseis;
+    int balas; 
 };
 #endif

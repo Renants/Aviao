@@ -1,49 +1,45 @@
 #include "Drone.h"
 #include<iostream>
 #include<iomanip>
-friend ostream &operator <<( ostream & out, const Drone &Raptor ){
-    cout << "Aucance de voo" << alcance << endl;
-    return out;
-}
 
 Drone::Drone()
+    : Airplane(1000,10) // Velocidade maxmima do drone e autonomia
 {
-    Airplane::Airplane()
-    missile = 4;
-    velocidade = 1000;
-    autonomia  = 10;
-    alcance    = autonomia * velocidade;
+    
+    misseis = 4;
+    balas = 100;
+
 }
 
 Drone::Drone( const Drone & drone ){
-    missile = drone.missile;
+    misseis = drone.misseis;
     velocidade = drone.velocidade;
     autonomia = drone.autonomia;
     alcance = drone.alcance;
 }
 
-Drone::Fire(){
-    if ( ammunition = 0){
+void Drone::defFirebala(){
+    if ( balas = 0){
         cout <<"Sem municao!" << endl;
     }
         else
         {
             cout <<"Disparo feito!" << endl;
-            this->ammunition--;
-            cout << ammunition; 
+            this->balas--;
+            cout << balas; 
         }
 }
 
 
-Drone::Firem(){
-    if ( missile = 0){
+void Drone::defFiremissil(){
+    if ( misseis = 0){
         cout <<"Sem misseis!" << endl;
     }
         else
         {
             cout <<"Disparo feito!" << endl;
-            this->missile--;
-            cout << missile; 
+            this->misseis--;
+            cout << misseis; 
         }
 
 
@@ -52,5 +48,6 @@ Drone::Firem(){
 
 Drone::~Drone()
 {
+    
 }
 
