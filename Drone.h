@@ -6,8 +6,9 @@ using namespace std;
 
 class Drone: public Airplane
 {
+     friend ostream &operator<<(ostream &,const Drone &);
 public:
-    Drone();
+    Drone(int = 800, int = 5);
     Drone( const Drone & );
     ~Drone();
     void defFirebala();

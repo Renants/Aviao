@@ -2,6 +2,12 @@
 #include<iostream>
 #include<iomanip>
 
+ostream &operator<<(ostream &output,const Airplane &Jatinhoprint)
+{
+    output << "Capacidade: " << Jatinho.capacidade << endl;   
+    return output;
+}
+
 Jatinho::Jatinho()
     : Airplane(1000,5) // Velocidade maxmima do drone e autonomia
 {

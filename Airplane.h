@@ -5,10 +5,11 @@
 using namespace std;
 class Airplane
 {
+    friend ostream &operator<<(ostream &,const Airplane &);
 public:
 		Airplane( int = 700, int = 5);
         ~Airplane();
-        friend ostream &operator<<(ostream &,const Airplane &);
+        
         bool operator==(const Airplane &) const;
         Airplane &operator=(const Airplane &);
         void	visor();

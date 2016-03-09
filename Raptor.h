@@ -3,10 +3,13 @@
 #include "Drone.h"
 class Raptor : class Drone
 {
+     friend ostream &operator<<(ostream &,const Raptor &);
 public:
-    Raptor();
+    Raptor(int 700, int 10);
     ~Raptor();
-private:
+    Raptor( const Raptor & );
+    void foto();
+
     
 
 };

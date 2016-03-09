@@ -2,8 +2,13 @@
 #include<iostream>
 #include<iomanip>
 
-Drone::Drone()
-    : Airplane(1000,10) // Velocidade maxmima do drone e autonomia
+ostream &operator<<(ostream &output,const Drone &Aviaoprint)
+{
+    output << "Misseis: "<< Drone.misseis << "Projeteis: "<< Drone.balas << endl;   
+    return output;
+}
+Drone::Drone( int vel, int aut)
+    : Airplane(vel,aut) // Velocidade maxmima do drone e autonomia
 {
     
     misseis = 4;
