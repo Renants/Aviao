@@ -8,7 +8,7 @@ ostream &operator<<(ostream &output,const Drone &Aviaoprint)
     return output;
 }
 
-const Drone &operator=(const Drone &dcopia){
+const Drone &operator=(const Drone &dcopia){ // Sobrecarga operato '=' class derivada Drone
 	 static_cast<Airplane> (*this) = static_cast<Airplane> (dcopia);
 		misseis = dcopia.misseis;
 		balas	= dcopia.balas
