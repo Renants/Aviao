@@ -14,7 +14,7 @@ Jatinho::Jatinho( int = vm, int = aut )
     capacidade = 5;
 }
 
-const Jatinho &operator=(const Jatinho &jatinhocp){
+const Jatinho &operator=(const Jatinho &jatinhocp){ // Sobrecarga operato '=' class derivada Jatinho
 	 static_cast<Airplane> (*this) = static_cast<Airplane> (jatinhocp);
 		capacidade =jatinhocp.capacidade;
 }
