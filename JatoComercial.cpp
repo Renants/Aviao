@@ -16,7 +16,7 @@ JatoComercial::JatoComercial(int vl,int at)
 	modelo		= "Helios One";
 }
 
-const JatoComercial &operator=(const JatoComercial &jatocp){
+const JatoComercial &operator=(const JatoComercial &jatocp){ // Sobrecarga operato '=' class derivada Jatocomercia
 	 static_cast<Airplane> (*this) = static_cast<Airplane> (jatinhocp);
 		internet =jatocp.internet;
 		internet =jatocp.radio;
