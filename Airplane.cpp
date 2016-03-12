@@ -42,7 +42,7 @@ ostream &operator<<(ostream &output,const Airplane &Aviaoprint)
     return output;
 }
 
-Airplane & Airplane::operator=(const Airplane &copia){
+Airplane & Airplane::operator=(const Airplane &copia){ // Sobrecarga operato '=' class base Airplane
 	noar 		= copia.noar;
 	gps	        = copia.gps;
 	transponder = copia.transponder;
