@@ -1,7 +1,8 @@
 #ifndef JATOCOMERCIAL_H
 #define JATOCOMERCIAL_H
-using std::ostream;
-using std::string;
+#include<iostream>
+#include<string>
+using namespace std;
 class JatoComercial : class Jatinho
 {
 	friend ostream &operator<<(ostream &,const Jatinho &);

@@ -12,8 +12,7 @@ void linha( int x){
 	}	
 }
 main(){
-	//objetos criados
-    
+	
 	Data Obj_blackbox(10,02,1992);
     string nome;
     linha(25);
