@@ -19,9 +19,16 @@ main(){
     linha(25);
 	cout << "\n*Bem vindo ao Helios One Aircraft*\n";
 	linha(25);
+	
+	Drone Raptor(1000,10);
+	JatoComercial Mirrage (2000,5);
+	
+	Raptor.visor();
+	Mirrage.visor();
     
     
-    system("pause>0");
+    
+	system("pause>0");
     
 }
 
