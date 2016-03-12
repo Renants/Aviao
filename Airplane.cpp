@@ -38,7 +38,8 @@ Airplane( const Airplane &copia, const Data &copia,const string &nome ){
 
 ostream &operator<<(ostream &output,const Airplane &Aviaoprint)
 {
-    output << "Autonomia: "<< Airplane.autonomia << "Alcance: "<< Airplane.alcance <<"Velocidade: " << Airplane.velocidade << endl;   
+    
+	output << "Autonomia: "<< Airplane.autonomia << "Alcance: "<< Airplane.alcance <<"Velocidade: " << Airplane.velocidade << endl;   
     return output;
 }
 
