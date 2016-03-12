@@ -7,6 +7,24 @@ ostream &operator<<(ostream &output,const Drone &Aviaoprint)
     output << "Misseis: "<< Drone.misseis << "Projeteis: "<< Drone.balas << endl;   
     return output;
 }
+
+const Drone &operator=(const Drone &dcopia){
+	 static_cast<Airplane> (*this) = static_cast<Airplane> (dcopia);
+		misseis = dcopia.misseis;
+		balas	= dcopia.balas
+}
+
+bool Drone::operator==(const Drone &dronecmp) const
+{
+    if((static_cast<Airplane> (*this) == static_cast<Airplane>(dronecmp)){  
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 Drone::Drone( int vel, int aut)
     : Airplane(vel,aut) // Velocidade maxmima do drone e autonomia
 {
@@ -16,6 +34,12 @@ Drone::Drone( int vel, int aut)
 
 }
 
+Drone::Drone(){
+	Drone.vmax = 1000;
+	Drone.autonomia = 4;
+	misseis = 4;
+    balas = 100;
+}
 Drone::Drone( const Drone & drone ){
     misseis = drone.misseis;
     velocidade = drone.velocidade;
@@ -23,7 +47,7 @@ Drone::Drone( const Drone & drone ){
     alcance = drone.alcance;
 }
 
-void Drone::defFirebala(){
+void Drone::alterarDispararb(){
     if ( balas = 0){
         cout <<"Sem municao!" << endl;
     }
@@ -36,7 +60,7 @@ void Drone::defFirebala(){
 }
 
 
-void Drone::defFiremissil(){
+void Drone::alterarDispararm(){
     if ( misseis = 0){
         cout <<"Sem misseis!" << endl;
     }

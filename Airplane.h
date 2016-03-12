@@ -2,33 +2,35 @@
 #define AIRPLANE_H
 #include<string>
 #include "Data.h"
+using std::ostream;
 using namespace std;
 class Airplane
 {
     friend ostream &operator<<(ostream &,const Airplane &);
 public:
+		Airplane( const Airplane &, const Data &,const string & );
 		Airplane( int = 700, int = 5);
         ~Airplane();
-        
+        Airplane();
         bool operator==(const Airplane &) const;
         Airplane &operator=(const Airplane &);
         void	visor();
 		void	visorMenssagem() const;
 		
-        void	defGps();
-		void	defTransponder();
-		void	defPilotoauto();
+        void	alterarGps();
+		void	alterarTransponder();
+		void	alterarPilotoauto();
 		
-        void	defAlcance ();
+        void	alterarAlcance ();
 		float	retAlcance() const;
         
-        void	defDecolar();
+        void	decolar();
 		void	defAlterarvoo();
 		
-        void	defVelocidade();
+        void	alterarVelocidade();
 		float	retVelocidade() const;	
 		
-        void    defAutonomia();
+        void    alterarAutonomia();
         float   retAutonomia() const;
 		
         float	retAux()const;
@@ -48,7 +50,6 @@ public:
         float	alcance;
         float	aux;
 		float   vmax;
-        string  name;
-};
+	};
 
 #endif

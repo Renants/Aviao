@@ -14,12 +14,33 @@ Airplane::Airplane(int vmx, int aut)
 	pilotoauto  = false;
 }
 
+Airplane::Airplane(){
+	vmax		=1000;
+	autonomia	=4;
+	noar 		= false;
+	gps	        = false;
+	transponder = false;
+	pilotoauto  = false;
+}
+
+Airplane( const Airplane &copia, const Data &copia,const string &nome ){
+	noar 		= copia.noar;
+	gps	        = copia.gps;
+	transponder = copia.transponder;
+	pilotoauto  = copia.pilotoauto;
+	velocidade	= copia.velocidade;
+	alcance	    = copia.alcance;
+    autonomia   = copia.autonomia;
+    blackbox    = copia.blackbox;
+	name		= nome.name;
+	
+}
+
 ostream &operator<<(ostream &output,const Airplane &Aviaoprint)
 {
     output << "Autonomia: "<< Airplane.autonomia << "Alcance: "<< Airplane.alcance <<"Velocidade: " << Airplane.velocidade << endl;   
     return output;
 }
-
 
 Airplane & Airplane::operator=(const Airplane &copia){
 	noar 		= copia.noar;
@@ -83,7 +104,7 @@ void Airplane::visorMenssagem()const{
 float Airplane::retAux()const{
 	return aux;
 }
-void Airplane::defGps(){
+void Airplane::alterarGps(){
 	if ( gps == false ){
 	gps = true;
 	Wait();
@@ -96,7 +117,7 @@ void Airplane::defGps(){
 	}
 	
 }
-void Airplane::defTransponder(){
+void Airplane::alterarTransponder(){
 	if ( transponder == false){
 	this->transponder = true;
 	radar++;
@@ -113,7 +134,7 @@ void Airplane::defTransponder(){
 	}
 }
 
-void Airplane::defPilotoauto(){
+void Airplane::alterarPilotoauto(){
 	if ( noar == false){
 		Wait();
 		cout << "\nErro helios One ainda em solo...\n" << endl;}
@@ -156,12 +177,12 @@ void Airplane::visor(){
 				break;
 			case 2:
 				system("cls");
-				defTransponder();
+				alterarTransponder();
 				
 				break;
 			case 3:
 				system("cls");
-				defPilotoauto();
+				alterarPilotoauto();
 				break;
 			case 4:
 				system("cls");
@@ -170,12 +191,12 @@ void Airplane::visor(){
 				break;
 			case 5:
 				system("cls");
-				defDecolar();
+				decolar();
 				cout <<"\n";
 				break;
 			case 6:
 				system("cls");
-				defAlterarvoo();
+				alterarVoo();
 				cout <<"\n";
 				break;
 			case 7:
@@ -187,7 +208,7 @@ void Airplane::visor(){
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
 }
-void Airplane::defVelocidade(){
+void Airplane::alterarVelocidade(){
 		cout << "Velocidade desejada em Km/h: " << endl;
 		int op;
 		do{
@@ -212,7 +233,7 @@ void Airplane::defVelocidade(){
 		
 	} while ( op == 0);
 }	
-void Airplane::defAlcance(){
+void Airplane::alterarAlcance(){
 	int op;
 	cout <<"Distancia do destino em km: " << endl;
 	if ( noar == false)
@@ -261,7 +282,7 @@ void Airplane::defAlcance(){
 	
 	}  
 }
-void Airplane::defDecolar(){
+void Airplane::decolar(){
 	if ( transponder == false )
 	{ // Nao decolar com transponder off
 		Wait();
@@ -272,8 +293,8 @@ void Airplane::defDecolar(){
 	else if ( noar == false) 
 {
 		cout <<"Procedimentos para decolagem..." << endl;
-		defAlcance();	 
-		defVelocidade();
+		alterarAlcance();	 
+		alterarVelocidade();
 		this->noar = true;
 		system("cls");
 		cout <<"Acelerando Airplane..." << endl;
@@ -297,7 +318,7 @@ void Airplane::defDecolar(){
 		
 	}
 }
-void Airplane::defAlterarvoo(){
+void Airplane::alterarVoo(){
 	if ( noar == false){
 		cout <<"Erro Airplane ainda em solo... " << endl;
 	}
@@ -305,9 +326,9 @@ void Airplane::defAlterarvoo(){
 	 {
 	 
 		cout << "Alterar velocidade: " << endl;
-		defVelocidade();
+		alterarVelocidade();
 		cout << "Alterar Distancia: " << endl;
-		defAlcance();
+		alterarAlcance();
 		cout << "Nova velocidade: " << velocidade << endl;
 		cout << "Nova distancia: " << alcance << endl;
 		cout << "Tempo estimado para destino: " << alcance /velocidade <<"horas" << endl;
