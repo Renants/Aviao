@@ -14,7 +14,7 @@ const Drone &operator=(const Drone &dcopia){ // Sobrecarga operato '=' class der
 		balas	= dcopia.balas
 }
 
-bool Drone::operator==(const Drone &dronecmp) const
+bool Drone::operator==(const Drone &dronecmp) const // static cast class derivada drone
 {
     if((static_cast<Airplane> (*this) == static_cast<Airplane>(dronecmp)){  
         return true;
