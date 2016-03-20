@@ -13,7 +13,7 @@ void linha( int x){
 }
 main(){
 	
-	Data Obj_blackbox(10,02,1992);
+	Data Obj_blackbox(01,01,2001);
     string nome;
     linha(25);
 	cout << "\n*Bem vindo ao Helios One Aircraft*\n";

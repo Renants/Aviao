@@ -3,25 +3,27 @@
 #define DRONE_H
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Drone: public Airplane
 {
-     friend ostream &operator<<(ostream &,const Drone &);
+
 public:
 	const Drone &operator=(const Drone &);
     bool operator==(const Drone &) const;
-	
 	Drone(int = 800, int = 5);
     Drone( const Drone & );
     ~Drone();
 	Drone();
     void alterarDispararb();
     void alterarDispararm();
-	
+	void visorMenssagem();
+	void adicionarAlvos(string);
     
     private:
     int misseis;
-    int balas; 
+    int balas;
+	vector <string> Alvos;
 };
 #endif

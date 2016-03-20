@@ -2,11 +2,7 @@
 #include<iostream>
 #include<iomanip>
 
-ostream &operator<<(ostream &output,const Airplane &Jatinhoprint)
-{
-    output << "Capacidade: " << Jatinhoprint.capacidade << endl;   
-    return output;
-}
+
 
 Jatinho::Jatinho( int = vm, int = aut )
     : Airplane(vm,aut) // Velocidade maxmima do drone e autonomia
@@ -15,19 +11,17 @@ Jatinho::Jatinho( int = vm, int = aut )
 }
 
 const Jatinho &operator=(const Jatinho &jatinhocp){
-	 static_cast<Airplane> (*this) = static_cast<Airplane> (jatinhocp);
+	
 		capacidade =jatinhocp.capacidade;
 }
 
 bool Jatinho::operator==(const Jatinho &jatinhocmp) const
 {
-    if((static_cast<Airplane> (*this) == static_cast<Airplane>(jatinhocmp) && getPassenger() == jatinhocp.abordo){  
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    if( jatinhocmp.capacidade != capacidade ) return false;
+    if( jatinhocmp.abordo!= abordo ) return false;
+    if( jatinhocmp.vmax != vmx) return false;
+    if( jatinhocmp.blackbox.print() != blackbox.print() ) return false;
+    return true;
 }
 
 Jatinho::Jatinho(const Jatinho &jato){
@@ -75,4 +69,38 @@ Jatinho::~Jatinho()
 
 int Jatinho::getaBordo(){
 	return abordo; 
+}
+
+void Jatinho::visorMenssagem(){
+	Jatinho.Wait();
+	cout <<"\nData Default: " << endl; 
+    blackbox.print();
+    cout << "\nStatus dos instrumentos:" << endl;
+	if ( gps == false){
+		cout <<"Gps desligado..." << endl; 
+	}
+	else{
+		cout <<"Gps ligado e funcionando..." << endl;
+	}
+	
+	if ( transponder == false){
+		cout <<"transponder desligado..." << endl; 
+	}
+	else{
+		cout <<"Tranponder ligado e funcionando..." << endl;
+	}
+	if ( pilotoauto == false){
+		cout <<"Piloto automatico desligado..." << endl; 
+	}
+	else{
+		cout <<"Piloto automatico ligado e funcionando..." << endl;
+	}
+	if ( noar == false){
+		cout <<"Jatinho ainda em solo..." << endl; 
+	}
+	else{
+		cout <<"Jatinho no ar..." << endl;
+	}
+	cout << "A bordo: " << Jatinho.getaBordo() << endl;
+	
 }

@@ -2,10 +2,11 @@
 #define JATINHO_H
 #include"Airplane.h"
 #include "Passenger.h"
+#include <vector>
 using std::ostream;
 class Jatinho : public Airplane
 {
-     friend ostream &operator<<(ostream &,const Jatinho &);
+     
 public:
 	bool operator==(const Airplane &) const;
 	Airplane &operator=(const Airplane &);
@@ -15,13 +16,14 @@ public:
     void    regPassageiros();
     void    getPassenger();
 	int		getaBordo();
-    //Criar um método que faça algo
-    //registarPassageiros
+	void visorMenssagem();
+    void getEscala();
         
 private:
     int capacidade;
 	int abordo;
     Passenger *registro;
+	vector <string> Escalas;
 };
 
 

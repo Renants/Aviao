@@ -3,9 +3,8 @@
 #include<iostream>
 #include<string>
 using namespace std;
-class JatoComercial : class Jatinho
+class JatoComercial : public Jatinho
 {
-	friend ostream &operator<<(ostream &,const Jatinho &);
 public:
 	
 	bool operator==(const JatoComercial &) const;
@@ -16,10 +15,12 @@ public:
 	void alterarRadio();
 	string retModelo();
 
+
 private: 
 	bool radio;
     bool internet;
 	string modelo;
+	
 };
 
 #endif // JATOCOMERCIAL_H

@@ -1,12 +1,7 @@
 #include "JatoComercial.h"
-
-
-friend ostream &operator<<(ostream &,const JatoComercial &Jatoprint){
-	output << "Internet a bordo: " << Jatoprint.internet << "Cominicação com torre de controle:" << Jatoprint.radio << endl;   
-    return output;
-}
-
-
+#include<iostream>
+#include<string>
+using namespace std;
 
 JatoComercial::JatoComercial(int vl,int at)
 	: Jatinho(vl,at)
@@ -17,20 +12,18 @@ JatoComercial::JatoComercial(int vl,int at)
 }
 
 const JatoComercial &operator=(const JatoComercial &jatocp){
-	 static_cast<Airplane> (*this) = static_cast<Airplane> (jatinhocp);
 		internet =jatocp.internet;
-		internet =jatocp.radio;
+		radio =jatocp.radio;
+		
 }
 
-bool Jatinho::operator==(const Jatinho &jatocpcmp) const
+bool Jatinho::operator==(const Jatinho & jatocpcmp) const
 {
-    if((static_cast<Airplane> (*this) == static_cast<Airplane>(jatocpcmp) && retModelo() == jatocpcmp.modelo ){  
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    if( jatocpcmp.internet != internet) return false;
+    if( jatocpcmp.radio!= radio ) return false;
+    if( jatocpcmp.modelo != modelo ) return false;
+    if( jatocpcmp.blackbox.print() != blackbox.print() ) return false;
+    return true;
 }
 
 JatoComercial::~JatoComercial()

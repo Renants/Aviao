@@ -36,12 +36,7 @@ Airplane( const Airplane &copia, const Data &copia,const string &nome ){
 	
 }
 
-ostream &operator<<(ostream &output,const Airplane &Aviaoprint)
-{
-    
-	output << "Autonomia: "<< Airplane.autonomia << "Alcance: "<< Airplane.alcance <<"Velocidade: " << Airplane.velocidade << endl;   
-    return output;
-}
+
 
 Airplane & Airplane::operator=(const Airplane &copia){
 	noar 		= copia.noar;
@@ -70,7 +65,8 @@ float Airplane::retVelocidade()const{
 float Airplane::retAlcance()const{
 	return alcance;
 }
-void Airplane::visorMenssagem()const{
+
+/*void Airplane::visorMenssagem(){
 	Wait();
 	cout <<"\nData Default: " << endl; 
     blackbox.print();
@@ -102,6 +98,7 @@ void Airplane::visorMenssagem()const{
 	}
 
 }
+*/
 float Airplane::retAux()const{
 	return aux;
 }
@@ -163,7 +160,6 @@ void Airplane::visor(){
 		 << "Ligar Gps			-1-\n" 
 		 << "Ligar Transponder		-2-\n" 
 		 << "Ligar Piloto automatico		-3-\n" 
-		 << "Mostrar status dos insturmnetos	-4-\n"
 		 << "Iniciar decolagem	 	-5-\n"
 		 << "Alterar parametros de voo	-6-\n"
 		 << "Mostrar Radar      		-7-\n"
@@ -187,20 +183,15 @@ void Airplane::visor(){
 				break;
 			case 4:
 				system("cls");
-				visorMenssagem();
+				decolar();
 				cout <<"\n";
 				break;
 			case 5:
 				system("cls");
-				decolar();
-				cout <<"\n";
-				break;
-			case 6:
-				system("cls");
 				alterarVoo();
 				cout <<"\n";
 				break;
-			case 7:
+			case 6:
 				system("cls");
 				retRadar();
 				cout <<"\n";

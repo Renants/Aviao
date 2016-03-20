@@ -6,7 +6,7 @@ using std::ostream;
 using namespace std;
 class Airplane
 {
-    friend ostream &operator<<(ostream &,const Airplane &);
+  
 public:
 		Airplane( const Airplane &, const Data &,const string & );
 		Airplane( int = 700, int = 5);
@@ -15,7 +15,8 @@ public:
         bool operator==(const Airplane &) const;
         Airplane &operator=(const Airplane &);
         void	visor();
-		void	visorMenssagem() const;
+		
+		virtual void visorMenssagem() = 0;
 		
         void	alterarGps();
 		void	alterarTransponder();

@@ -2,27 +2,19 @@
 #include<iostream>
 #include<iomanip>
 
-ostream &operator<<(ostream &output,const Drone &Aviaoprint)
-{
-    output << "Misseis: "<< Drone.misseis << "Projeteis: "<< Drone.balas << endl;   
-    return output;
-}
 
 const Drone &operator=(const Drone &dcopia){
-	 static_cast<Airplane> (*this) = static_cast<Airplane> (dcopia);
 		misseis = dcopia.misseis;
 		balas	= dcopia.balas
 }
 
 bool Drone::operator==(const Drone &dronecmp) const
 {
-    if((static_cast<Airplane> (*this) == static_cast<Airplane>(dronecmp)){  
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    if(dronecmp.misseis != misseis) return false;
+    if(dronecmp.balas!= balas) return false;
+    if(dronecmp.vmax != vmx) return false;
+    if(dronecmp.blackbox.print() != blackbox.print() ) return false;
+    return true;
 }
 
 Drone::Drone( int vel, int aut)
@@ -75,8 +67,50 @@ void Drone::alterarDispararm(){
 }
 
 
+void Drone::visorMenssagem(){
+	Drone.Wait();
+	cout <<"\nData Default: " << endl; 
+    blackbox.print();
+    cout << "\nStatus dos instrumentos:" << endl;
+	if ( gps == false){
+		cout <<"Gps desligado..." << endl; 
+	}
+	else{
+		cout <<"Gps ligado e funcionando..." << endl;
+	}
+	
+	if ( transponder == false){
+		cout <<"transponder desligado..." << endl; 
+	}
+	else{
+		cout <<"Tranponder ligado e funcionando..." << endl;
+	}
+	if ( pilotoauto == false){
+		cout <<"Piloto automatico desligado..." << endl; 
+	}
+	else{
+		cout <<"Piloto automatico ligado e funcionando..." << endl;
+	}
+	if ( noar == false){
+		cout <<"Drone ainda em solo..." << endl; 
+	}
+	else{
+		cout <<"Drone no ar..." << endl;
+	}
+	cout << "Munição restantante:" << endl;
+	cout << "Misseis: " << misseis << endl;
+	cout << "Balas: "	<< balas   << endl;
+}
+
+
+void Drone::adicionarAlvos( string alvo)
+{
+     this->Alvos.push_back(Alvos); 
+}
+
+
 Drone::~Drone()
 {
-    
+    delete []Alvos;
 }
 
