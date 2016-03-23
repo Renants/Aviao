@@ -72,7 +72,7 @@ Jatinho::~Jatinho(){
         delete [] registro;
 }
 
-void Jatinho::visorMensagem(){
+void Jatinho::visorMensagem(){ // método implementado
 	Airplane::Wait();
 	cout <<"\nData Default: " << endl; 
     blackbox.print();
