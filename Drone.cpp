@@ -171,7 +171,7 @@ void Drone::visorMensagem(){
 	cout << "Balas: "	<< projeteis   << endl;
 }
 
-void Drone::adicionarAlvos(){
+void Drone::adicionarAlvos(){ // vector no cpp
     cout <<"Alvo atual: ";
     getline(cin,alvos);
 	alvosVector.push_back(alvos);
