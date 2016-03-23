@@ -32,7 +32,7 @@ public:
     private:
     int misseis;
     int projeteis;
-	vector<string> alvosVector;
+	vector<string> alvosVector; // cevtor no .h
     string alvos;
 };
 #endif
