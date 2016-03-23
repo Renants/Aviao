@@ -16,7 +16,7 @@ public:
     ~Jatinho();
             void    regPassageiros(); // Aloca dinamicamente os passageiros;
             void    getPassenger();  
-	virtual void    visorMensagem();
+	virtual void    visorMensagem(); // classe virtual
     virtual void    visor();
     virtual void    alterarEscalas();
     virtual void    alterarGps();
