@@ -16,7 +16,7 @@ public:
         Airplane &operator=(const Airplane &);
         virtual void	visor() = 0;
 		
-		virtual void visorMensagem() = 0;
+		virtual void visorMensagem() = 0; // classe virtual pura
 		
         virtual void	alterarGps() = 0;
 		virtual void	alterarTransponder() = 0;
