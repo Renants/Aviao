@@ -8,7 +8,7 @@ using namespace std;
 
 class Drone: public Airplane
 {
-
+    friend ostream& operator<<(ostream &, const Drone &);
 public:
 	const Drone &operator=(const Drone &);
     bool operator==(const Drone &) const;
@@ -16,14 +16,23 @@ public:
     Drone( const Drone & );
     ~Drone();
 	Drone();
-    void alterarDispararb();
-    void alterarDispararm();
-	void visorMenssagem();
-	void adicionarAlvos(string);
-    
+    void defDispararp();
+    void defDispararm();
+	virtual void visor();
+    virtual void visorMensagem();
+	void adicionarAlvos();
+    string retAlvos();
+    virtual void alterarGps();
+    virtual void alterarPilotoauto();
+    virtual void alterarAlcance ();
+    virtual void alterarVelocidade();
+    virtual void decolar();
+    virtual void alterarVoo();
+	void retAmmunition();	
     private:
     int misseis;
-    int balas;
-	vector <string> Alvos;
+    int projeteis;
+	vector<string> alvosVector;
+    string alvos;
 };
 #endif

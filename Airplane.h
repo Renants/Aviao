@@ -8,30 +8,29 @@ class Airplane
 {
   
 public:
-		Airplane( const Airplane &, const Data &,const string & );
+		Airplane( const Airplane &);
 		Airplane( int = 700, int = 5);
         ~Airplane();
         Airplane();
         bool operator==(const Airplane &) const;
         Airplane &operator=(const Airplane &);
-        void	visor();
+        virtual void	visor() = 0;
 		
-		virtual void visorMenssagem() = 0;
+		virtual void visorMensagem() = 0;
 		
-        void	alterarGps();
-		void	alterarTransponder();
-		void	alterarPilotoauto();
+        virtual void	alterarGps() = 0;
+		virtual void	alterarTransponder() = 0;
+		virtual void	alterarPilotoauto() = 0;
 		
-        void	alterarAlcance ();
+        virtual void	alterarAlcance () = 0;
 		float	retAlcance() const;
         
-        void	decolar();
-		void	defAlterarvoo();
+        virtual void	decolar() = 0;
+		virtual void	defAlterarvoo() = 0 ;
 		
-        void	alterarVelocidade();
+        virtual void	alterarVelocidade() = 0;
 		float	retVelocidade() const;	
 		
-        void    alterarAutonomia();
         float   retAutonomia() const;
 		
         float	retAux()const;
@@ -46,8 +45,8 @@ public:
 		bool	noar;
 		bool	transponder;
         static  int radar;
-		float   autonomia;
-        float   velocidade;
+		float   velocidade;
+        float   autonomia;
         float	alcance;
         float	aux;
 		float   vmax;

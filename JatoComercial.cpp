@@ -11,18 +11,17 @@ JatoComercial::JatoComercial(int vl,int at)
 	modelo		= "Helios One";
 }
 
-const JatoComercial &operator=(const JatoComercial &jatocp){
-		internet =jatocp.internet;
-		radio =jatocp.radio;
+const JatoComercial &JatoComercial::operator=(const JatoComercial &OldjatoComercial){
+		this->internet =OldjatoComercial.internet;
+		this->radio =OldjatoComercial.radio;
 		
 }
 
-bool Jatinho::operator==(const Jatinho & jatocpcmp) const
+bool JatoComercial::operator==(const JatoComercial & OldjatoComercial) const
 {
-    if( jatocpcmp.internet != internet) return false;
-    if( jatocpcmp.radio!= radio ) return false;
-    if( jatocpcmp.modelo != modelo ) return false;
-    if( jatocpcmp.blackbox.print() != blackbox.print() ) return false;
+    if( OldjatoComercial.internet != internet) return false;
+    if( OldjatoComercial.radio!= radio ) return false;
+    if( OldjatoComercial.modelo != modelo ) return false;
     return true;
 }
 
@@ -31,7 +30,7 @@ JatoComercial::~JatoComercial()
 	cout << "Destrutor chamado para Jato Comercial" << endl;
 }
 
-void JatoComercial::definternet(){
+void JatoComercial::alterarInternet(){
     if ( internet == false){
         cout << "Internet disponivel para os passageiros"<<endl;
         internet == true;

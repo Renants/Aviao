@@ -3,27 +3,33 @@
 #include"Airplane.h"
 #include "Passenger.h"
 #include <vector>
-using std::ostream;
+#include <string>
+using namespace std;
 class Jatinho : public Airplane
 {
-     
+        friend ostream& operator<<(ostream &, const Jatinho &);
 public:
-	bool operator==(const Airplane &) const;
-	Airplane &operator=(const Airplane &);
+	bool operator==(const Jatinho &) const;
+    const Jatinho &operator=(const Jatinho &);
 	Jatinho( const Jatinho & );
     Jatinho(int = 1000, int = 5);
     ~Jatinho();
-    void    regPassageiros();
-    void    getPassenger();
-	int		getaBordo();
-	void visorMenssagem();
-    void getEscala();
-        
+            void    regPassageiros(); // Aloca dinamicamente os passageiros;
+            void    getPassenger();  
+	virtual void    visorMensagem();
+    virtual void    visor();
+    virtual void    alterarEscalas();
+    virtual void    alterarGps();
+    virtual void    alterarPilotoauto();
+    virtual void    alterarAlcance ();
+    virtual void    decolar();
+    virtual void    alterarVoo();
+    virtual void	alterarVelocidade();
+            void    alterarTransponder();    
 private:
     int capacidade;
-	int abordo;
-    Passenger *registro;
-	vector <string> Escalas;
+	Passenger *registro;
+	
 };
 
 

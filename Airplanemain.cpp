@@ -3,6 +3,7 @@
 #include "Drone.h"
 #include "Jatinho.h"
 #include<iostream>
+#include<vector>
 #include<windows.h>
 using namespace std;
 void linha( int x){
@@ -10,6 +11,9 @@ void linha( int x){
 		Sleep(50);
 		cout << "*";
 	}	
+}
+void display( Airplane * ptr ){
+    ptr->visor();
 }
 main(){
 	
@@ -19,15 +23,22 @@ main(){
 	cout << "\n*Bem vindo ao Helios One Aircraft*\n";
 	linha(25);
 	
-	Drone Raptor(1000,10);
-	JatoComercial Mirrage (2000,5);
-	
-	Raptor.visor();
-	Mirrage.visor();
+    vector<Airplane*> Avioes;
+    
+    Avioes.push_back(new Drone());
+    Avioes.push_back(new Jatinho());
+    Avioes.push_back(new JatoComercial());
+    
+    Drone *Raptor = dynamic_cast < Drone * > (Airplane);
+    Jatinho *Concorde = dynamic_cast < Jatinho * > (Airplane);
+    JatoComercial *Helios_One = dynamic_cast < JatoComercial * > (Jatinho);
+    
+    display( Raptor );
+    display( Concorde );
+    display( Helios_One );
     
     
-    
-	system("pause>0");
+system("pause>0");
     
 }
 

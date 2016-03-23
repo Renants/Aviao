@@ -1,3 +1,4 @@
+#include "Jatinho.h"
 #ifndef JATOCOMERCIAL_H
 #define JATOCOMERCIAL_H
 #include<iostream>
@@ -8,8 +9,8 @@ class JatoComercial : public Jatinho
 public:
 	
 	bool operator==(const JatoComercial &) const;
-	JatoComercial &operator=(const JatoComercial &);
-	JatoComercial(int = 500, int 5);
+	const JatoComercial &operator=(const JatoComercial &);
+	JatoComercial(int = 500, int = 5);
     ~JatoComercial();
     void alterarInternet();
 	void alterarRadio();
