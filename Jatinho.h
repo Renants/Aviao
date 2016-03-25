@@ -1,7 +1,6 @@
 #ifndef JATINHO_H
 #define JATINHO_H
-#include"Airplane.h"
-#include "Passenger.h"
+#include "Airplane.h"
 #include <vector>
 #include <string>
 using namespace std;
@@ -12,24 +11,14 @@ public:
 	bool operator==(const Jatinho &) const;
     const Jatinho &operator=(const Jatinho &);
 	Jatinho( const Jatinho & );
-    Jatinho(int = 1000, int = 5);
+    Jatinho(int , int, int );
     ~Jatinho();
-            void    regPassageiros(); // Aloca dinamicamente os passageiros;
-            void    getPassenger();  
-	virtual void    visorMensagem(); // classe virtual
-    virtual void    visor();
-    virtual void    alterarEscalas();
-    virtual void    alterarGps();
-    virtual void    alterarPilotoauto();
-    virtual void    alterarAlcance ();
-    virtual void    decolar();
-    virtual void    alterarVoo();
-    virtual void	alterarVelocidade();
-            void    alterarTransponder();    
-private:
+    string retModelo();
+
+protected:
+    string modelo;
     int capacidade;
-	Passenger *registro;
-	
+
 };
 
 

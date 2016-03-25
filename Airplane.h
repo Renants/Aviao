@@ -9,14 +9,14 @@ class Airplane
   
 public:
 		Airplane( const Airplane &);
-		Airplane( int = 700, int = 5);
+		Airplane( int , int );
         ~Airplane();
         Airplane();
         bool operator==(const Airplane &) const;
         Airplane &operator=(const Airplane &);
         virtual void	visor() = 0;
 		
-		virtual void visorMensagem() = 0; // classe virtual pura
+		virtual void visorMensagem() = 0;
 		
         virtual void	alterarGps() = 0;
 		virtual void	alterarTransponder() = 0;

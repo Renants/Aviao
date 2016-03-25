@@ -1,38 +1,33 @@
-#include"Airplane.h"
-#ifndef DRONE_H
-#define DRONE_H
-#include <iostream>
-#include <string>
-#include <vector>
-using namespace std;
+#ifndef DATA_H
+#define	DATA_H
 
-class Drone: public Airplane
-{
-    friend ostream& operator<<(ostream &, const Drone &);
+class Data
+{ 
 public:
-	const Drone &operator=(const Drone &);
-    bool operator==(const Drone &) const;
-	Drone(int = 800, int = 5);
-    Drone( const Drone & );
-    ~Drone();
-	Drone();
-    void defDispararp();
-    void defDispararm();
-	virtual void visor();
-    virtual void visorMensagem();
-	void adicionarAlvos();
-    string retAlvos();
-    virtual void alterarGps();
-    virtual void alterarPilotoauto();
-    virtual void alterarAlcance ();
-    virtual void alterarVelocidade();
-    virtual void decolar();
-    virtual void alterarVoo();
-	void retAmmunition();	
-    private:
-    int misseis;
-    int projeteis;
-	vector<string> alvosVector; // cevtor no .h
-    string alvos;
+    
+    Data( int = 1, int = 1, int = 2000 );
+    void print() const;
+    // funçoes set...
+    setDay( int); 
+    setMonth( int);
+    setYear( int);
+    //funçoes get...
+    int getDay();
+    int getMonth();
+    int getYear();
+    
+    int Checkday( int ) const;
+    
+private:
+    
+    int day;
+    int month;
+    int year;
+    
+    
+
+
 };
+
 #endif
+

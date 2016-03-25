@@ -1,8 +1,12 @@
-#include "Jatinho.h"
 #ifndef JATOCOMERCIAL_H
 #define JATOCOMERCIAL_H
-#include<iostream>
-#include<string>
+#include "Passenger.h"
+#include "Jatinho.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <stdlib.h>
+#include <windows.h>
 using namespace std;
 class JatoComercial : public Jatinho
 {
@@ -10,18 +14,27 @@ public:
 	
 	bool operator==(const JatoComercial &) const;
 	const JatoComercial &operator=(const JatoComercial &);
-	JatoComercial(int = 500, int = 5);
+	JatoComercial(int = 800, int = 5, int =  7);
     ~JatoComercial();
-    void alterarInternet();
-	void alterarRadio();
-	string retModelo();
-
+    void    regPassageiros(); // Aloca dinamicamente os passageiros;
+    void    getPassenger();  
+	virtual void    visorMensagem() = 0;
+    virtual void    visor() = 0;
+    virtual void    alterarEscalas() = 0;
+    virtual void    alterarGps() = 0;
+    virtual void    alterarPilotoauto() = 0;
+    virtual void    alterarAlcance () = 0;
+    virtual void    decolar() = 0;
+    virtual void    alterarVoo() = 0;
+    virtual void	alterarVelocidade() = 0;
+    virtual void    alterarTransponder() = 0;
+    
 
 private: 
-	bool radio;
-    bool internet;
-	string modelo;
-	
+	string escalas;
+    vector <string> escalasVector;
+    Passenger *registro;
+    bool reabastecimento;
 };
 
 #endif // JATOCOMERCIAL_H

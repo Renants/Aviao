@@ -1,11 +1,11 @@
-#include"Airplane.h"
-#include<windows.h>
-#include<iostream>
+#include "Airplane.h"
+#include <windows.h>
+#include <iostream>
 using namespace std;
 int Airplane::radar = 0;
 
-Airplane::Airplane(int vmx, int aut)
-    : blackbox(), vmax (vmx) , autonomia (aut), alcance ( vmax* autonomia )  
+Airplane::Airplane(int velocidade_maxima, int Autonomia)
+    : blackbox(), vmax (velocidade_maxima) , autonomia (Autonomia), alcance ( vmax* autonomia )  
 {
     
     noar 		= false;
@@ -14,8 +14,7 @@ Airplane::Airplane(int vmx, int aut)
 	pilotoauto  = false;
 }
 Airplane::Airplane(){
-	vmax		=1000;
-	noar 		= false;
+    noar 		= false;
 	gps	        = false;
 	transponder = false;
 	pilotoauto  = false;
