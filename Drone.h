@@ -1,33 +1,39 @@
-#ifndef DATA_H
-#define	DATA_H
+#include "Airplane.h"
+#ifndef DRONE_H
+#define DRONE_H
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
 
-class Data
-{ 
+class Drone: public Airplane
+{
+    
 public:
-    
-    Data( int = 1, int = 1, int = 2000 );
-    void print() const;
-    // funçoes set...
-    setDay( int); 
-    setMonth( int);
-    setYear( int);
-    //funçoes get...
-    int getDay();
-    int getMonth();
-    int getYear();
-    
-    int Checkday( int ) const;
-    
-private:
-    
-    int day;
-    int month;
-    int year;
-    
-    
-
-
+	const Drone &operator=(const Drone &);
+    bool operator==(const Drone &) const;
+	Drone(int , int );
+    Drone( const Drone & );
+    ~Drone();
+	Drone();
+    virtual void defDispararp() = 0;
+    virtual void defDispararm() = 0;
+	virtual void visor() = 0;
+    virtual void visorMensagem() =0;
+	virtual void adicionarAlvos() = 0 ;
+    string retAlvos();
+    virtual void alterarGps() = 0;
+    virtual void alterarPilotoauto() = 0;
+    virtual void alterarAlcance () = 0;
+    virtual void alterarVelocidade() = 0;
+    virtual void decolar() = 0;
+    virtual void alterarVoo() = 0;
+	void retAmmunition();	
+   
+protected:
+    int misseis;
+    int projeteis;
+	vector<string> alvosVector;
+    string alvos;
 };
-
 #endif
-
