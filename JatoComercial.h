@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <windows.h>
 using namespace std;
-class JatoComercial : public Jatinho
+class JatoComercial : public Jatinho // classe abstrata
 {
 public:
 	
