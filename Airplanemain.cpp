@@ -19,7 +19,7 @@ void Menu(){
         << "Comercial   -2-\n"
         << "Drone       -3-\n"
     cin >> opt;
-	vector <Airplane*> aviao;
+	vector <Airplane*> aviao; // vector no Main
 	switch(opt){
 	case 1: 
 	aviao.push_back(new JatoMilitar());}
@@ -32,7 +32,7 @@ void Menu(){
 }
 void option( Airplane *aviao){
     
-	JatoMilitar    *Jm = dynamic_cast< JatoMilitar *>(aviao);
+	JatoMilitar    *Jm = dynamic_cast< JatoMilitar *>(aviao); // dynamic_cast & vector
 	JatoComercial  *Jc = dynamic_cast< JatoComercial *>(aviao);
 	Raptor         *Dm= dynamic_cast< Raptor *>(aviao);
 	
