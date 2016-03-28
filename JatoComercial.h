@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <windows.h>
 using namespace std;
-class JatoComercial : public Jatinho // classe abstrata
+class JatoComercial : public Jatinho // classe concreta
 {
 public:
 	
@@ -19,16 +19,16 @@ public:
     JatoComercial();
     void    regPassageiros(); // Aloca dinamicamente os passageiros;
     void    getPassenger();  
-	virtual void    visorMensagem() = 0;
-    virtual void    visor() = 0;
-    virtual void    alterarEscalas() = 0;
-    virtual void    alterarGps() = 0;
-    virtual void    alterarPilotoauto() = 0;
-    virtual void    alterarAlcance () = 0;
-    virtual void    decolar() = 0;
-    virtual void    alterarVoo() = 0;
-    virtual void	alterarVelocidade() = 0;
-    virtual void    alterarTransponder() = 0;
+    virtual void    visorMensagem();
+    virtual void    visor();
+    void    alterarEscalas();
+    virtual void    alterarGps();
+    virtual void    alterarPilotoauto();
+    virtual void    alterarAlcance ();
+    virtual void    decolar();
+    virtual void    alterarVoo();
+    virtual void	alterarVelocidade();
+    virtual void    alterarTransponder();
     
 private: 
 	string escalas;
