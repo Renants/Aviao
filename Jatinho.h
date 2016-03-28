@@ -6,7 +6,7 @@
 using namespace std;
 class Jatinho : public Airplane
 {
-        friend ostream& operator<<(ostream &, const Jatinho &);
+       // friend ostream& operator<<(ostream &, const Jatinho &);
 public:
 	bool operator==(const Jatinho &) const;
     const Jatinho &operator=(const Jatinho &);

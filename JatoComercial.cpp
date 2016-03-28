@@ -15,13 +15,20 @@ const JatoComercial &JatoComercial::operator=(const JatoComercial &OldjatoComerc
         this->registro = OldjatoComercial.registro;
 }
 
-JatoComercial::~JatoComercial()
-{
+bool JatoComercial::operator ==(const JatoComercial & OldJatoComercial){	
+    for(int i=0; escalasVector.size(); i++)
+	{
+		if(escalasVector[i] == OldJatoComercial.escalasVector[i])
+		return true;
+	}
+	return false;
+}
+
+JatoComercial::~JatoComercial(){
 	cout << "Destrutor chamado para Jato Comercial" << endl;
     cout <<"\nDestrutor chamado para *Resgistro..." << endl;
         delete [] registro;
 }
-
 
 void JatoComercial::regPassageiros(){
     if ( capacidade ==0){
@@ -51,8 +58,6 @@ void JatoComercial::getPassenger(){
             registro[capacidade].getNome();}
         }
 }
-
-
 
 void JatoComercial::visorMensagem(){
 	JatoComercial::Wait();
@@ -230,7 +235,7 @@ void JatoComercial::decolar(){
 
 void JatoComercial::alterarVoo(){
 	if ( noar == false){
-		cout <<"Erro Jatinho ainda em solo... " << endl;
+		cout <<"Erro " << this->modelo " ainda em solo... " << endl;
 	}
 	 else
 	 {

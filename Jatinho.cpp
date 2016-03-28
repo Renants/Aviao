@@ -23,11 +23,11 @@ const Jatinho &Jatinho::operator=(const Jatinho &Oldjatinho){
     return true;
 } */
 
-ostream& operator<<(ostream &output, const Jatinho &display)
+/*ostream& operator<<(ostream &output, const Jatinho &display)
 {
 	output << "\n Basic Information: "	display.visorMensagem();
     return output;
-}
+}*/
 
 Jatinho::Jatinho(const Jatinho &Oldjatinho)
     :Airplane(Oldjatinho)

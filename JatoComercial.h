@@ -16,6 +16,7 @@ public:
 	const JatoComercial &operator=(const JatoComercial &);
 	JatoComercial(int = 800, int = 5, int =  7);
     ~JatoComercial();
+    JatoComercial();
     void    regPassageiros(); // Aloca dinamicamente os passageiros;
     void    getPassenger();  
 	virtual void    visorMensagem() = 0;
@@ -29,12 +30,11 @@ public:
     virtual void	alterarVelocidade() = 0;
     virtual void    alterarTransponder() = 0;
     
-
 private: 
 	string escalas;
     vector <string> escalasVector;
     Passenger *registro;
-    bool reabastecimento;
+    
 };
 
 #endif // JATOCOMERCIAL_H

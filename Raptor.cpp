@@ -6,7 +6,7 @@ ostream& operator<<(ostream &output, const Raptor &display){
 }
 
 Raptor::Raptor(int velocidade, int autonomia)
-    Drone (velocidade,autonomia);
+    Drone (velocidade,autonomia,0);
 {
     this->stealth = false;
 }

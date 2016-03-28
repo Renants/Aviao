@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 class Raptor: public Drone
-{ friend ostream& operator<<(ostream &, const Drone &);
+{ friend ostream& operator<<(ostream &, const Raptor &);
 public:
     Raptor( int 1000,int 7);
     ~Raptor();

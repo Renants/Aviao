@@ -9,7 +9,7 @@ class Airplane
   
 public:
 		Airplane( const Airplane &);
-		Airplane( int , int );
+		Airplane( int , int, int );
         ~Airplane();
         Airplane();
         bool operator==(const Airplane &) const;

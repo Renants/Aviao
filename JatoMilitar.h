@@ -1,27 +1,38 @@
 #ifndef JATOMILITAR_H
 #define JATOMILITAR_H
+#include "Jatinho.h"
+#include <iostream>
+#include <string>
+#include <vector>
+#include <windows.h>
 
-class JatoMilitar
-public:
+class JatoMilitar : public Jatinho
+{   friend ostream& operator<<(ostream &, const JatoMilitar &);
+public: 
     JatoMilitar();
     ~JatoMilitar();
-    virtual void    visorMensagem() = 0;
-    virtual void    visor() = 0;
-    virtual void    alterarEscalas() = 0;
-    virtual void    alterarGps() = 0;
-    virtual void    alterarPilotoauto() = 0;
-    virtual void    alterarAlcance () = 0;
-    virtual void    decolar() = 0;
-    virtual void    alterarVoo() = 0;
-    virtual void	alterarVelocidade() = 0;
-    virtual void    alterarTransponder() = 0;
+    JatoMilitar(int = 600, int = 5, int =  10);
+   	const JatoMilitar &operator=(const JatoMilitar &);
+    bool operator==(const JatoMilitar &) const;
+    JatoMilitar( const JatoMilitar & );
+    virtual void    visorMensagem();
+    virtual void    visor();
+    virtual void    alterarParaquedistas();
+    virtual void    alterarGps();
+    virtual void    alterarPilotoauto();
+    virtual void    alterarAlcance ();
+    virtual void    decolar();
+    virtual void    alterarVoo();
+    virtual void	alterarVelocidade();
+    virtual void    alterarTransponder();
+    void            reabastecer();
+    void            defDispararp();
 
-private
+private:
 bool reabastecimento;
-int misseis;
 int projeteis;
-vector<string> alvosVector;
-string alvos;   
+vector<string> Paraquedistas;
+    string Paraquedista;
 };
 
 #endif // JATOMILITAR_H
