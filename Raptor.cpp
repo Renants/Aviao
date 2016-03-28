@@ -28,7 +28,7 @@ void Raptor::defDispararp(){
         }
 }
 
-void Raptor::defDispararm(){
+void Raptor::defDispararm(){ // metodo especifico da classe concreta
     if ( stealth != false ){
     if ( misseis = 0){
         cout <<"Sem misseis!" << endl;
