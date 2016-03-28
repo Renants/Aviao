@@ -4,7 +4,7 @@
 #include "Data.h"
 using std::ostream;
 using namespace std;
-class Airplane
+class Airplane // Base abstrata
 {
   
 public:
