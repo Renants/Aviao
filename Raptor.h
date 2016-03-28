@@ -23,6 +23,7 @@ public:
     virtual void alterarVelocidade() = 0;
     virtual void decolar() = 0;
     virtual void alterarVoo() = 0;
+    	    void alterarStealth();
 	
 private:
     bool stealth;
