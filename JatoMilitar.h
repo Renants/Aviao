@@ -6,7 +6,7 @@
 #include <vector>
 #include <windows.h>
 
-class JatoMilitar : public Jatinho
+class JatoMilitar : public Jatinho // classe concreta
 {   friend ostream& operator<<(ostream &, const JatoMilitar &);
 public: 
     JatoMilitar();
