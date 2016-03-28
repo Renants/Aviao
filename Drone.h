@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-class Drone: public Airplane
+class Drone: public Airplane // classe abstrata
 {
     
 public:
