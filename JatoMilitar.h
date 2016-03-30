@@ -27,9 +27,11 @@ public:
     virtual void    alterarTransponder();    	
     void            reabastecer();
     void            defDispararp();
+    void            reabastecimentoAéreo();
         
 private:
-bool reabastecimento;
+bool sensor;
+
 int projeteis;
 
 };
