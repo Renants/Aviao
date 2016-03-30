@@ -211,51 +211,6 @@ void JatoMilitar::alterarVoo(){
 	 } 
 }
 
-void JatoMilitar::visor(){
-	int aux;
-	do{
-	
-	cout << "\nDisplay de Instrumentos: \n"
-		 << "Ligar Gps			-1-\n" 
-		 << "Ligar Piloto automatico		-2-\n" 
-		 << "Iniciar decolagem	 	-3-\n"
-		 << "Alterar parametros de voo	-4-\n"
-		 << "Mostrar Radar      		-5-\n"
-         << "Sair do Display insturmnetos	-0-\n";
-        cout << endl;
-		cin >> aux;
-		switch (aux){
-			case 1:
-				system("cls");
-				alterarGps();
-				
-				break;
-			case 2:
-				system("cls");
-				alterarPilotoauto();
-				break;
-			
-            case 3:
-				system("cls");
-				decolar();
-				cout <<"\n";
-				break;
-			
-            case 4:
-				system("cls");
-				alterarVoo();
-				cout <<"\n";
-				break;
-			
-            case 5:
-				system("cls");
-				Airplane::retRadar();
-                cout <<"\n";
-				break;
-            default: 
-				cout << "Esclolha Invalida..." << endl;}	 
-	} while ( aux != 0);
-}
 
 void JatoMilitar::reabastecer(){
     if ( noar == false ){

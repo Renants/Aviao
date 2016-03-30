@@ -38,3 +38,7 @@ Jatinho::Jatinho(const Jatinho &Oldjatinho)
 
 Jatinho::~Jatinho(){
 }
+
+Jatinho::retModelo(){
+    return modelo;
+}

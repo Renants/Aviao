@@ -28,7 +28,7 @@ public:
 	
 private:
     bool stealth;
-
+    string modelo;
 };
 
 #endif // RAPTOR_H

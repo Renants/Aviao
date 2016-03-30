@@ -9,7 +9,14 @@ Raptor::Raptor(int velocidade, int autonomia)
     Drone (velocidade,autonomia,0);
 {
     this->stealth = false;
+    this->gps = true;
+    this->modelo = "Raptor";
 }
+
+const Raptor &Raptor::operator=(const Raptor &OldRaptor){
+	
+}
+
 
 Raptor::~Raptor()
 {
@@ -43,93 +50,14 @@ void Raptor::defDispararm(){ // metodo especifico da classe concreta
 
 }
 
-void Raptor::visor(){
-	int aux;
-	do{
-	
-	cout << "\nDisplay de Instrumentos: \n"
-		 << "Ligar Gps			-1-\n" 
-		 << "Adionar Alvos		-2-\n" 
-		 << "Mostra Alvos       -3-"
-         << "Disparar Projeteis     -4-"
-         << "Dispara Misseis        -5-"
-         << "Mostrar Projetes e Misseis		-6-\n" 
-		 << "Ligar Piloto automatico		-7-\n" 
-		 << "Iniciar decolagem	 	-8-\n"
-		 << "Alterar parametros de voo	-9-\n"
-		 << "Mostrar Radar      		-10-\n"
-         << "Sair do Display insturmnetos	-0-\n";
-        cout << endl;
-		cin >> aux;
-		switch (aux){
-			case 1:
-				//system("cls");
-				alterarGps();
-				
-				break;
-			case 2:
-				//system("cls");
-				adicionarAlvos();
-				break;
-			
-            case 3:
-				//system("cls");
-				retAlvos();
-				break;
-			
-            case 4:
-				//system("cls");
-				defDispararp();
-				break;
-			
-            case 5:
-				//system("cls");
-				defDispararm();
-				break;
-			
-            case 6:
-				//system("cls");
-				retAmmunition();
-				break;
-			
-            case 7:
-				//system("cls");
-				alterarPilotoauto();
-				break;
-			
-            case 8:
-				//system("cls");
-				decolar();
-				cout <<"\n";
-				break;
-			
-            case 9:
-				//system("cls");
-				alterarVoo();
-				cout <<"\n";
-				break;
-			
-            case 10:
-				//system("cls");
-				Airplane::retRadar();
-                cout <<"\n";
-				break;
-           default: 
-				cout << "Esclolha Invalida..." << endl;}	 
-	} while ( aux != 0);
-}
 
 void Raptor::visorMensagem(){
     Raptor.Wait();
 	cout <<"\nData Default: " << endl; 
     blackbox.print();
     cout << "\nStatus dos instrumentos:" << endl;
-	if ( gps == false){
-		cout <<"Gps desligado..." << endl; 
-	}
-	else{
-		cout <<"Gps ligado e funcionando..." << endl;
-	}
+    cout <<"Gps ligado e funcionando..." << endl;
+	
 	
 	if ( pilotoauto == false){
 		cout <<"Piloto automatico desligado..." << endl; 

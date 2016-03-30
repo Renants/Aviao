@@ -267,68 +267,9 @@ void JatoComercial::alterarTransponder(){
 	}
 }
 
-void JatoComercial::visor(){
-	int aux;
-	do{
-	
-	cout << "\nDisplay de Instrumentos: \n"
-		 << "Ligar Gps			-1-\n" 
-		 << "Ligar Transponder		-2-\n" 
-		 << "Ligar Piloto automatico		-3-\n" 
-		 << "Iniciar decolagem	 	-4-\n"
-		 << "Alterar parametros de voo	-5-\n"
-		 << "Mostrar Radar      		-6-\n"
-         << "Adicionar Passageiros      -7-"
-         << "Mortrar Passgeiros         -8-"
-         << "Sair do Display insturmnetos	-0-\n";
-        cout << endl;
-		cin >> aux;
-		switch (aux){
-			case 1:
-				system("cls");
-				alterarGps();
-				
-				break;
-			case 2:
-				system("cls");
-				alterarTransponder();
-				break;
-			
-            case 3:
-				system("cls");
-				alterarPilotoauto();
-				break;
-			
-            case 4:
-				system("cls");
-				decolar();
-				cout <<"\n";
-				break;
-			
-            case 5:
-				system("cls");
-				alterarVoo();
-				cout <<"\n";
-				break;
-			
-            case 6:
-				system("cls");
-				Airplane::retRadar();
-                cout <<"\n";
-				break;
-            case 7:
-				system("cls");
-				regEmbarque();
-                cout <<"\n";
-				break;
-            case8:
-				system("cls");
-				getEmbarque();
-                cout <<"\n";
-				break;
 
-                
-           default: 
-				cout << "Esclolha Invalida..." << endl;}	 
-	} while ( aux != 0);
+void JatoComercial::alterarEscalas(){
+    cout << "Nova escala: "
+    getline(cin,escalas);
+    escalasVector.push_back(escalas);
 }
