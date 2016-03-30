@@ -13,7 +13,7 @@ public:
 	Jatinho( const Jatinho & );
     Jatinho(int , int, int );
     ~Jatinho();
-    virtual void    regEmbarque() = 0; // Aloca dinamicamente os passageiros;
+    virtual void    regEmbarque() = 0; // Embarque de passageiros ou tripulação
     virtual void    getEmbarque() = 0;  
     virtual void    alterarTransponder() = 0;    	
             void    retModelo();
