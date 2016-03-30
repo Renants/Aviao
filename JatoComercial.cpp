@@ -273,3 +273,23 @@ void JatoComercial::alterarEscalas(){ // método especifico Jato Comercial
     getline(cin,escalas);
     escalasVector.push_back(escalas);
 }
+
+void JatoComercial::reabastecer(){ 
+ if ( noar == false ){
+    cout << this->modelo <<" ainda em solo";}
+    else{
+       int aux
+        JatoComercial::Wait();    
+        cout <<"Diminuindo a velocidade" << endl;
+        aux = this->velocidade;
+        this->velocidade = velocidade - ( velocidade/3)
+        cout << this->modelo <<" Reabastecimento do "<< this->modelo <<" em andamento..." << end;
+        cout << "Autonomia anterior: " << this->autonomia << endl;
+        this->autonomia =  autonomia + 5;
+        cout << "Autonomia Atual: " << this->autonomia << endl;
+        this->velocidade = aux}
+}
+            
+    
+
+
