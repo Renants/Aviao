@@ -17,8 +17,6 @@ public:
 	JatoComercial(int = 800, int = 5, int =  7);
     ~JatoComercial();
     JatoComercial();
-    void    regPassageiros(); // Aloca dinamicamente os passageiros;
-    void    getPassenger();  
     virtual void    visorMensagem();
     virtual void    visor();
     void    alterarEscalas();
@@ -29,11 +27,14 @@ public:
     virtual void    alterarVoo();
     virtual void	alterarVelocidade();
     virtual void    alterarTransponder();
+    virtual void    regEmbarque(); // Aloca dinamicamente os passageiros;
+    virtual void    getEmbarque();  
+    
     
 private: 
 	string escalas;
     vector <string> escalasVector;
-    Passenger *registro;
+    
     
 };
 

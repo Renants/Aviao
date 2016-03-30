@@ -30,16 +30,16 @@ JatoComercial::~JatoComercial(){
         delete [] registro;
 }
 
-void JatoComercial::regPassageiros(){
+void JatoComercial::regEmbarque(){
     if ( capacidade ==0){
         cout <<"Sem vagas" << endl;
     }
     else
     {
-        registro= new Passenger[capacidade];
+        this->registro = new Passenger[capacidade];
         string aux;    
         do  {
-            cout << "Nome: "<< capacidade << endl; 
+            cout << "Nome do passageiro: "<< capacidade << endl; 
             getline( cin, aux);
             registro[capacidade].setNome(aux);
             capacidade--;
@@ -47,7 +47,7 @@ void JatoComercial::regPassageiros(){
     }
 }
 
-void JatoComercial::getPassenger(){
+void JatoComercial::getEmbarque(){
     if ( capacidade == 5 )    
         {
          cout <<"Vazio" << endl;
@@ -161,7 +161,7 @@ void JatoComercial::alterarAlcance(){
 		do{
 		cin >> this->alcance;
 		if ( alcance > autonomia*velocidade ){
-			cout <<"Distancia excede a autonomia do Jatinho..." << endl;
+			cout <<"Distancia excede a autonomia do "<< this->modelo << endl;
 			op = 0;
 		}
 		else if ( alcance <= 0 ){
@@ -179,7 +179,7 @@ void JatoComercial::alterarAlcance(){
 	else // Alterar distancia em voo
 	{
 		
-		cout << "Drone jah percorreu: " << alcance << endl;
+		cout << this->modelo <<" jah percorreu: " << alcance << endl;
 		cout << "Autonomia restante :" << (autonomia*velocidade) - alcance << endl;
 		cout << "Nova distancia do destino em km: " << endl;
 		this-> aux = this-> alcance;
@@ -318,12 +318,12 @@ void JatoComercial::visor(){
 				break;
             case 7:
 				system("cls");
-				regPassageiros();
+				regEmbarque();
                 cout <<"\n";
 				break;
             case8:
 				system("cls");
-				getPassenger();
+				getEmbarque();
                 cout <<"\n";
 				break;
 

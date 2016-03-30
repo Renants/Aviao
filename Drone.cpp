@@ -37,12 +37,6 @@ Drone::Drone(const Drone &OldDrone)
     
 }
     
-
-void Drone::retAmmunition(){
-    cout << projeteis << endl;
-    cout << misseis << endl;
-}
-
 string Drone::retAlvos(){
     return alvos;
 }

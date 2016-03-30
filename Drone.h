@@ -18,17 +18,10 @@ public:
 	Drone();
     virtual void defDispararp() = 0;
     virtual void defDispararm() = 0;
-	virtual void visor() = 0;
-    virtual void visorMensagem() =0;
+	virtual void visorMensagem() =0;
 	virtual void adicionarAlvos() = 0 ;
     string retAlvos();
-    virtual void alterarGps() = 0;
-    virtual void alterarPilotoauto() = 0;
-    virtual void alterarAlcance () = 0;
-    virtual void alterarVelocidade() = 0;
-    virtual void decolar() = 0;
-    virtual void alterarVoo() = 0;
-	void retAmmunition();	
+    void retAmmunition() = 0;	
    
 protected:
     int misseis;

@@ -19,7 +19,6 @@ public:
 		virtual void visorMensagem() = 0;
 		
         virtual void	alterarGps() = 0;
-		virtual void	alterarTransponder() = 0;
 		virtual void	alterarPilotoauto() = 0;
 		
         virtual void	alterarAlcance () = 0;

@@ -24,6 +24,7 @@ void Raptor::defDispararp(){
     }else{
             cout <<"Disparo feito!" << endl;
             this->projeteis--;
+            this->projeteis--;
             cout << projeteis; 
         }
 }
@@ -329,4 +330,9 @@ void Raptor::alterarStealth(){
          cout << "Camuflagem desativada" << endl;
      }    
     }
+}
+
+void Raptor::retAmmunition(){
+    cout << projeteis << endl;
+    cout << misseis << endl;
 }

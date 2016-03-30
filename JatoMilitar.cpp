@@ -27,20 +27,6 @@ JatoMilitar::JatoMilitar(int vl,int at,int cap)
         this->modelo = "C-130 Hercules";
 }
 
-void JatoMilitar::alterarParaquedistas(){
-    if ( JatoMilitar.capacidade != 0 ){
-    cout <<"Paraquedista atual: ";
-    getline(cin,Paraquedista);
-	Paraquedistas.push_back(Paraquedista);
-    JatoMilitar.capacidade --;
-    }
-    else
-    {
-        cout << "Capacidade maxima atingida" << end;
-    }
-}
-
-
 void JatoMilitar::visorMensagem(){
 	JatoComercial::Wait();
 	cout <<"\nData Default: " << endl; 
@@ -51,13 +37,6 @@ void JatoMilitar::visorMensagem(){
 	}
 	else{
 		cout <<"Gps ligado e funcionando..." << endl;
-	}
-	
-	if ( transponder == false){
-		cout <<"transponder desligado..." << endl; 
-	}
-	else{
-		cout <<"Tranponder ligado e funcionando..." << endl;
 	}
 	if ( pilotoauto == false){
 		cout <<"Piloto automatico desligado..." << endl; 
@@ -117,10 +96,10 @@ void JatoMilitar::alterarVelocidade(){
 void JatoMilitar::alterarPilotoauto(){
 	if ( noar == false){
 		Wait();
-		cout << "\nErro Drone ainda em solo...\n" << endl;}
-	else if ( gps && transponder == false ){
+		cout << "Erro " << this->modelo << "ainda em solo...\n" << endl;}
+	else if ( gps  == false ){
 		Wait();
-		cout << "\nGps e Transponder desligados..." << endl;
+		cout << "\nGps  desligado..." << endl;
 		}	 
 	else if ( pilotoauto == true ){
 			pilotoauto = false;
@@ -143,7 +122,7 @@ void JatoMilitar::alterarAlcance(){
 		do{
 		cin >> this->alcance;
 		if ( alcance > autonomia*velocidade ){
-			cout <<"Distancia excede a autonomia do Jatinho..." << endl;
+			cout <<"Distancia excede a autonomia do "<<this->modelo << endl;
 			op = 0;
 		}
 		else if ( alcance <= 0 ){
@@ -161,14 +140,14 @@ void JatoMilitar::alterarAlcance(){
 	else // Alterar distancia em voo
 	{
 		
-		cout << "Drone jah percorreu: " << alcance << endl;
+		cout << this->modelo <<" jah percorreu: " << alcance << endl;
 		cout << "Autonomia restante :" << (autonomia*velocidade) - alcance << endl;
 		cout << "Nova distancia do destino em km: " << endl;
 		this-> aux = this-> alcance;
 		do{
 			cin >> this-> alcance;
 			if ( aux + alcance > autonomia*velocidade ){
-			cout <<"Distancia excede a autonomia do Drone..." << endl;
+			cout <<"Distancia excede a autonomia do "<< this->modelo << endl;
 			op = 0;
 			}
 		else if ( alcance < 0 ){
@@ -193,13 +172,13 @@ void JatoMilitar::decolar(){
 		alterarVelocidade();
 		this->noar = true;
 		//system("cls");
-		cout <<"Acelerando Jatinho..." << endl;
+		cout <<"Acelerando "<<this->modelo << endl;
 			for ( int i = 1; i<=velocidade; i ++ )
 			{
 				Sleep(10);
 				cout << i  << "km/h" << endl;
 			}
-		cout << "Jatinho no ar!" << endl;
+		cout <<this->modelo <<" no ar!" << endl;
 		cout << "Tempo estimado para destino: " << alcance/velocidade <<" horas" << endl;
 		Wait();	
 		for ( int i = 1; i<=alcance; i ++ )
@@ -217,7 +196,7 @@ void JatoMilitar::decolar(){
 
 void JatoMilitar::alterarVoo(){
 	if ( noar == false){
-		cout <<"Erro"  Jatinho ainda em solo... " << endl;
+		cout <<"Erro"  this->modelo <<" ainda em solo... " << endl;
 	}
 	 else
 	 {
@@ -232,34 +211,16 @@ void JatoMilitar::alterarVoo(){
 	 } 
 }
 
-void JatoMilitar::alterarTransponder(){
-	if ( transponder == false){
-	this->transponder = true;
-	radar++;
-	Wait();
-	cout <<"\nTransponder ligado e funcionando..." << endl;
-	}
-	else
-	{
-	this->transponder = false;
-	radar--;
-	Wait();
-	cout <<"\nTransponder desligado..." << endl;
-		
-	}
-}
-
 void JatoMilitar::visor(){
 	int aux;
 	do{
 	
 	cout << "\nDisplay de Instrumentos: \n"
 		 << "Ligar Gps			-1-\n" 
-		 << "Ligar Transponder		-2-\n" 
-		 << "Ligar Piloto automatico		-3-\n" 
-		 << "Iniciar decolagem	 	-4-\n"
-		 << "Alterar parametros de voo	-5-\n"
-		 << "Mostrar Radar      		-6-\n"
+		 << "Ligar Piloto automatico		-2-\n" 
+		 << "Iniciar decolagem	 	-3-\n"
+		 << "Alterar parametros de voo	-4-\n"
+		 << "Mostrar Radar      		-5-\n"
          << "Sair do Display insturmnetos	-0-\n";
         cout << endl;
 		cin >> aux;
@@ -271,35 +232,27 @@ void JatoMilitar::visor(){
 				break;
 			case 2:
 				system("cls");
-				alterarTransponder();
-				break;
-			
-            case 3:
-				system("cls");
 				alterarPilotoauto();
 				break;
 			
-            case 4:
+            case 3:
 				system("cls");
 				decolar();
 				cout <<"\n";
 				break;
 			
-            case 5:
+            case 4:
 				system("cls");
 				alterarVoo();
 				cout <<"\n";
 				break;
 			
-            case 6:
+            case 5:
 				system("cls");
 				Airplane::retRadar();
                 cout <<"\n";
 				break;
-            case 7:
-			
-                
-           default: 
+            default: 
 				cout << "Esclolha Invalida..." << endl;}	 
 	} while ( aux != 0);
 }
@@ -324,6 +277,36 @@ void JatoMilitar::defDispararp(){
     else{
             cout <<"Disparo feito!" << endl;
             this->projeteis--;
+            this->projeteis--;
             cout << projeteis; 
+        }
+}
+
+void JatoComercial::regEmbarque(){
+    if ( capacidade == 0){
+        cout <<this->modelo<<" Lotado!" << endl;
+    }
+    else
+    {
+        this->registro = new Passenger[capacidade];
+        string aux;    
+        do  {
+            cout << "Nome do Tripulante: "<< capacidade << endl; 
+            getline( cin, aux);
+            registro[capacidade].setNome(aux);
+            capacidade--;
+            } while ( capacidade >= 0);
+    }
+}
+
+void JatoComercial::getEmbarque(){
+    if ( capacidade == 15 )    
+        {
+         cout <<"Vazio" << endl;
+        }
+    else
+        {
+            for ( capacidade >=0; capacidade -- ){
+            registro[capacidade].getNome();}
         }
 }

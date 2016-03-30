@@ -11,28 +11,27 @@ class JatoMilitar : public Jatinho // classe concreta
 public: 
     JatoMilitar();
     ~JatoMilitar();
-    JatoMilitar(int = 600, int = 5, int =  10);
+    JatoMilitar(int = 600, int = 5, int =  15);
    	const JatoMilitar &operator=(const JatoMilitar &);
     bool operator==(const JatoMilitar &) const;
     JatoMilitar( const JatoMilitar & );
     virtual void    visorMensagem();
-    virtual void    visor();
-    virtual void    alterarParaquedistas();
     virtual void    alterarGps();
     virtual void    alterarPilotoauto();
     virtual void    alterarAlcance ();
     virtual void    decolar();
     virtual void    alterarVoo();
     virtual void	alterarVelocidade();
-    virtual void    alterarTransponder();
+    virtual void    regEmbarque(); // Aloca dinamicamente os tripulantes;
+    virtual void    getEmbarque();  
+    virtual void    alterarTransponder();    	
     void            reabastecer();
     void            defDispararp();
-
+        
 private:
 bool reabastecimento;
 int projeteis;
-vector<string> Paraquedistas;
-    string Paraquedista;
+
 };
 
 #endif // JATOMILITAR_H

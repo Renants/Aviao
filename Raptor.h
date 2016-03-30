@@ -24,6 +24,7 @@ public:
     virtual void decolar();
     virtual void alterarVoo();
     	    void alterarStealth();
+    virtual void retAmmunition()
 	
 private:
     bool stealth;

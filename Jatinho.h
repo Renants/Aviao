@@ -14,21 +14,13 @@ public:
     Jatinho(int , int, int );
     ~Jatinho();
     string retModelo();
-    virtual void    visorMensagem() = 0;
-    virtual void    visor() = 0;
-    virtual void    alterarEscalas() = 0;
-    virtual void    alterarGps() = 0;
-    virtual void    alterarPilotoauto() = 0;
-    virtual void    alterarAlcance () = 0;
-    virtual void    decolar() = 0;
-    virtual void    alterarVoo() = 0;
-    virtual void	alterarVelocidade() = 0;
-    virtual void    alterarTransponder() = 0;
-
+    virtual void    regEmbarque() = 0; // Aloca dinamicamente os passageiros;
+    virtual void    getEmbarque() = 0;  
+    virtual void    alterarTransponder() = 0;    	
 protected:
     string modelo;
     int capacidade;
-
+    Passenger *registro;
 };
 
 
