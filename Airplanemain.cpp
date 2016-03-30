@@ -5,6 +5,34 @@
 #include <vector>
 #include <windows.h>
 using namespace std;
+
+main(){
+	int opt;
+	Data Obj_blackbox(01,01,2001);
+    string nome;
+    linha(25);
+	cout << "\n*Bem vindo ao Helios One*\n";
+	linha(25);
+    vector< Airplane* > jatos(3); // Vector;
+    jatos.push_back( new JatoComercial(700,5,7)
+    jatos.push_back( new JatoMilitar(1000,10,15));
+    jatos.push_back( new JatoComercial(700,5,7);
+    jatos.push_back( new Raptor(500,5));
+    for ( int=0; i<4= i++  ){
+        jatos[i]->decolar();
+    }
+    
+    for ( int=0; i<4= i++  ){
+    JatoMilitar *ptr = dynamic_cast < JatoMilitar * > ( Jatos[i]); // dynamic_cast;
+    if ( ptr != 0){
+        ptr->reabastecer();
+    }
+}
+    
+system("pause>0");
+    
+}
+
 /*void DisplayComercial(){
 	int aux;
 	do{
@@ -191,33 +219,6 @@ void DisplayDrone(){
 
 
 
-main(){
-	int opt;
-	Data Obj_blackbox(01,01,2001);
-    string nome;
-    linha(25);
-	cout << "\n*Bem vindo ao Helios One*\n";
-	linha(25);
-    vector< Airplane* > jatos(3);
-    mainMenu();
-    
-    jatos.push_back( new JatoComercial(700,5,7)
-    jatos.push_back( new JatoMilitar(1000,10,15));
-    jatos.push_back( new JatoComercial(700,5,7);
-    jatos.push_back( new Raptor(500,5,10));
-    for ( int=0; i<4= i++  ){
-        jatos[i]->decolar();
-    }
-    
-    for ( int=0; i<4= i++  ){
-    JatoMilitar *ptr = dynamic_cast < JatoMilitar * > ( Jatos[i]);
-    if ( ptr != 0){
-        ptr->reabastecer();
-    }
-}
-    
-system("pause>0");
-    
-}
+
 
 
