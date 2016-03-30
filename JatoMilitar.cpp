@@ -225,7 +225,7 @@ void JatoMilitar::reabastecer(){
     }
 }
 
-void JatoMilitar::defDispararp(){
+void JatoMilitar::defDispararp(){ // método especifico Jato Militar
     if ( projeteis = 0){
         cout <<"Sem municao!" << endl;
     }
