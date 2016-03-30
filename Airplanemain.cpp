@@ -236,7 +236,7 @@ void mainMenu(){
 }
 
 void option( Airplane *aviao){
-    Airplane *ptr = dynamic_cast < JatoComercial * > (Airplane);
+    Airplane *ptr = dynamic_cast < JatoComercial * > (Airplane); // ponteiro único
     Hangar.push_back(ptr);
     int aux;
     cout << "Que posição do Hangar deseja?: " << endl;
