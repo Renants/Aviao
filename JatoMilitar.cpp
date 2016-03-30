@@ -254,7 +254,7 @@ void JatoComercial::regEmbarque(){
     }
 }
 
-void JatoComercial::getEmbarque(){
+void JatoMilitar::getEmbarque(){
     if ( capacidade == 15 )    
         {
          cout <<"Vazio" << endl;

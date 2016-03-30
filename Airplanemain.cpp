@@ -5,15 +5,7 @@
 #include <vector>
 #include <windows.h>
 using namespace std;
-vector<Airplane *> Hangar;
-
-void linha( int x){
-	for ( int i = 1; i<=x; i ++ ){
-		Sleep(50);
-		cout << "*";
-	}	
-}
-void DisplayComercial(){
+/*void DisplayComercial(){
 	int aux;
 	do{
 	
@@ -195,64 +187,9 @@ void DisplayDrone(){
 	} while ( aux != 0);
 }
 
-bool ehComercial( Airplane* avi){
-    return typeid(Airplane*).modelo == typeid(JatoComercial).modelo;
-}
+*/
 
-bool ehMilitar( Airplane* avi ){
-    return typeid(Airplane*).modelo == typeid(JatoMilitar).modelo;
-}
 
-bool ehDrone( Airplane* avi ){
-    return typeid(Airplane*).modelo == typeid(Raptor).modelo;
-}
-
-void mainMenu(){
-    int aux;
-    do{
-    cout << "Escolha um modelo:
-        << "Militar     -1-\n"
-        << "Comercial   -2-\n"
-        << "Drone       -3-\n"
-    cin aux;
-    switch (aux){
-    case 1:
-       option ( new JatoMilitar(1000,10,15) );
-        system("csl");
-        break;
-    case 2:
-       option (new JatoComercial(700,5,7) ); 
-        system("csl");
-        break;
-    case 3:
-        option ( new Raptor (2000,3) );
-        system("csl");
-        break;
-     default: 
-    cout << "Esclolha Invalida..." << endl;}	    
-    system("csl");
-    } while (aux != 0 )
-    
-}
-
-void option( Airplane *aviao){
-    Airplane *ptr = dynamic_cast < JatoComercial * > (Airplane); // ponteiro único
-    Hangar.push_back(ptr);
-    int aux;
-    cout << "Que posição do Hangar deseja?: " << endl;
-    cin Hangar[aux]
-	{
-		if(Hangar[aux] == ehComercial(ptr)){
-            DisplayComercial();
-        }
-    else if (Hangar[aux] == ehMilitar(ptr)){
-            DisplayMilitar();
-	}
-    else 
-            DisplayDrone();
-    
-    }
-}    
 
 main(){
 	int opt;
@@ -261,8 +198,24 @@ main(){
     linha(25);
 	cout << "\n*Bem vindo ao Helios One*\n";
 	linha(25);
+    vector< Airplane* > jatos(3);
     mainMenu();
-
+    
+    jatos.push_back( new JatoComercial(700,5,7)
+    jatos.push_back( new JatoMilitar(1000,10,15));
+    jatos.push_back( new JatoComercial(700,5,7);
+    jatos.push_back( new Raptor(500,5,10));
+    for ( int=0; i<4= i++  ){
+        jatos[i]->decolar();
+    }
+    
+    for ( int=0; i<4= i++  ){
+    JatoMilitar *ptr = dynamic_cast < JatoMilitar * > ( Jatos[i]);
+    if ( ptr != 0){
+        ptr->reabastecer();
+    }
+}
+    
 system("pause>0");
     
 }
