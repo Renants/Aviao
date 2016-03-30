@@ -268,7 +268,7 @@ void JatoComercial::alterarTransponder(){
 }
 
 
-void JatoComercial::alterarEscalas(){
+void JatoComercial::alterarEscalas(){ // método especifico Jato Comercial
     cout << "Nova escala: "
     getline(cin,escalas);
     escalasVector.push_back(escalas);
