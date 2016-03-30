@@ -217,11 +217,6 @@ void JatoMilitar::reabastecer(){
     cout << this->modelo <<" ainda em solo";
     }else{
         JatoMilitar::Wait();
-        cout <<"Diminuindo a velocidade" << endl;
-        aux = this->velocidade;
-        this->velocidade = velocidade - ( velocidade/3);
-        cout << "alinhanmento em andamento..."
-        JatoMilitar::Wait();
         cout << "Avião de reabastecimento acoplado ao " << this->modelo << endl;
         cout << this->modelo <<" Reabastecimento do "<< this->modelo <<" em andamento..." << end;
         cout << "Autonomia anterior: " << this->autonomia << endl;
@@ -272,3 +267,14 @@ void JatoMilitar::getEmbarque(){
             registro[capacidade].getNome();}
         }
 }
+
+void Jatomilitar::reabastecimentoAerio(){
+	while( velocidade > velocidade - (velocidade/3) ){
+	cout << "reduza a velocidade em 1/3" << endl;
+	JatoMilitar.alterarVelocidade();}
+	reabastecimento = true;
+	JatoMilitar.reabastecer()
+}
+	
+	
+	
