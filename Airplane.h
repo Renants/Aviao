@@ -18,7 +18,7 @@ public:
 		
 		virtual void visorMensagem() = 0;
 		
-        virtual void	alterarGps() = 0;
+        virtual void	alterarGps() = 0; // Virtual puro
 		virtual void	alterarPilotoauto() = 0;
 		
         virtual void	alterarAlcance () = 0;
