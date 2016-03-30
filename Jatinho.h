@@ -17,6 +17,7 @@ public:
     virtual void    getEmbarque() = 0;  
     virtual void    alterarTransponder() = 0;    	
             void    retModelo();
+       virtual void    reabastecer() = 0;
 protected:
     string modelo;
     int capacidade;
