@@ -22,7 +22,7 @@ main(){
         jatos[i]->decolar();
  	JatoMilitar *ptr = dynamic_cast < JatoMilitar * > ( Jatos[i]); // dynamic_cast;
     if ( ptr != 0){
-        ptr->reabastecer();
+        ptr->reabastecimentoAerio();
     }
 }
     
