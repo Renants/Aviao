@@ -274,7 +274,7 @@ void JatoComercial::alterarEscalas(){ // método especifico Jato Comercial
     escalasVector.push_back(escalas);
 }
 
-void JatoComercial::reabastecer(){ 
+void JatoComercial::reabastecer(){ // reabastecer
  if ( noar == false ){
     cout << this->modelo <<" ainda em solo";}
     else{
