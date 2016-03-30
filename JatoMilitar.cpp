@@ -25,6 +25,7 @@ JatoMilitar::JatoMilitar(int vl,int at,int cap)
 	: Jatinho(vl,at,cap)
 {
         this->modelo = "C-130 Hercules";
+        tihs->sensor = false;
 }
 
 void JatoMilitar::visorMensagem(){
@@ -213,8 +214,9 @@ void JatoMilitar::alterarVoo(){
 
 
 void JatoMilitar::reabastecer(){
-    if ( noar == false ){
-    cout << this->modelo <<" ainda em solo";
+    if ( noar == false && sensor == false ){
+    cout << this->modelo <<" ainda em solo" << endl;
+    cout << "Erro nos sensores de reabastecimento " << endl;
     }else{
         JatoMilitar::Wait();
         cout << "Avião de reabastecimento acoplado ao " << this->modelo << endl;
@@ -272,7 +274,7 @@ void Jatomilitar::reabastecimentoAerio(){
 	while( velocidade > velocidade - (velocidade/3) ){
 	cout << "reduza a velocidade em 1/3" << endl;
 	JatoMilitar.alterarVelocidade();}
-	reabastecimento = true;
+	sensor = true;
 	JatoMilitar.reabastecer()
 }
 	
