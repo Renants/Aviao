@@ -216,11 +216,18 @@ void JatoMilitar::reabastecer(){
     if ( noar == false ){
     cout << this->modelo <<" ainda em solo";
     }else{
-        JatoMilitar::Wait();    
+        JatoMilitar::Wait();
+        cout <<"Diminuindo a velocidade" << endl;
+        aux = this->velocidade;
+        this->velocidade = velocidade - ( velocidade/3);
+        cout << "alinhanmento em andamento..."
+        JatoMilitar::Wait();
+        cout << "Avião de reabastecimento acoplado ao " << this->modelo << endl;
         cout << this->modelo <<" Reabastecimento do "<< this->modelo <<" em andamento..." << end;
         cout << "Autonomia anterior: " << this->autonomia << endl;
-        this->autonomia =  5;
+        this->autonomia = this->autonomia + 5;
         cout << "Autonomia Atual: " << this->autonomia << endl;
+        
             
     }
 }
