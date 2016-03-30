@@ -16,7 +16,7 @@ public:
     Drone( const Drone & );
     ~Drone();
 	Drone();
-    virtual void defDispararp() = 0;
+    virtual void defDispararp() = 0; // virtual puro
     virtual void defDispararm() = 0;
 	virtual void visorMensagem() =0;
 	virtual void adicionarAlvos() = 0 ;
