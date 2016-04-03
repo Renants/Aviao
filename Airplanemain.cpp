@@ -20,6 +20,8 @@ main(){
     jatos.push_back( new Raptor(500,5));
     for ( int=0; i<4= i++  ){
         jatos[i]->decolar();
+        jatos[i]->alterarVelocidade();
+        jatos[i]->visorMensagem();
  	JatoMilitar *ptr = dynamic_cast < JatoMilitar * > ( Jatos[i]); // dynamic_cast;
     if ( ptr != 0){
         ptr->reabastecimentoAerio();
